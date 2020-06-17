@@ -17,6 +17,7 @@ import Home from "./components/home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Exhibition from "./components/exhibition/index.jsx";
 import Exhibit from "./components/exhibition/exhibit";
+import Blog from "./components/Blog/index"
 
 
 class Application extends React.Component {
@@ -37,10 +38,10 @@ class Application extends React.Component {
 
     render() {
         return (
-           <BrowserRouter>
+            <BrowserRouter>
                 <div>
 
-                <Header></Header>
+                    <Header></Header>
                     {/* <Navigation user={this.state.user} />
                     <Switch>
                         <Route exact path="/" render={() => <Home user={this.state.user} />} />
@@ -52,23 +53,28 @@ class Application extends React.Component {
                         <Route component={NotFound} />
                     </Switch>*/}
 
-<Switch>
-          <Route exact path="/">
-            <div className="bg">
-            
-              <Home></Home>
-            </div>
-          </Route>
-          <Route exact path="/current-project">
-          
-            <Exhibition></Exhibition>
-          </Route>
-          <Route exact path="/current-project/exponat1">
-         
-            <Exhibit />
-          </Route>
-        </Switch>
+                    <Switch>
+                        <Route exact path="/">
+                            <div className="bg">
+
+                                <Home></Home>
+                            </div>
+                        </Route>
+                        <Route exact path="/current-project">
+
+                            <Exhibition></Exhibition>
+                        </Route>
+                        <Route exact path="/current-project/exponat1">
+                            <Exhibit />
+                        </Route>
+                        <Route exact path="/blog">
+                            <Blog />
+                        </Route>
+                    </Switch>
+                    <Footer></Footer>
                 </div>
+
+
             </BrowserRouter>
         )
     }

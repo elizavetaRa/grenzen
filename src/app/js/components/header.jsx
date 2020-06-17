@@ -41,7 +41,7 @@ class Header extends Component {
                     </Nav.Link>*/}
 
                     <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/current-project">
+                      <NavDropdown.Item href="/current-project">
                         GRENZEN
                       </NavDropdown.Item>
                       <NavDropdown.Item href="/digitalisierung">
@@ -50,16 +50,16 @@ class Header extends Component {
                     </NavDropdown>
 
                     <NavDropdown title="Archiv" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/öffentlichkeit">
+                      <NavDropdown.Item href="/öffentlichkeit">
                         Öffentlichkeit
                       </NavDropdown.Item>
                     </NavDropdown>
 
-                    
-                
-                    <Nav.Link href="/Blog">Blog</Nav.Link>
-                    <Nav.Link href="/Blog">Über uns</Nav.Link>
-                    <Nav.Link href="/Blog">Kontakt</Nav.Link>
+
+
+                    <Nav.Link href="/blog">Blog</Nav.Link>
+                    <Nav.Link href="/über">Über uns</Nav.Link>
+                    <Nav.Link href="/kontakt">Kontakt</Nav.Link>
                     {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">
                         Action
@@ -76,7 +76,7 @@ class Header extends Component {
                       </NavDropdown.Item>
                     </NavDropdown>*/}
                   </Nav>
-        
+
                 </Navbar.Collapse>
               </Navbar>
             </div>
