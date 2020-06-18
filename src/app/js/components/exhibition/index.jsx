@@ -20,14 +20,26 @@ export default class FullPage extends React.Component {
 
 
   render() {
-   
+
 
     return (
-<div>
-      <FirstComponent></FirstComponent>
-   <SecondComponent></SecondComponent>
-</div>
+      <div className="container">
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link active" href="#über">Über die Ausstellung</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#projekte">Projekte</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#team">Team</a>
+          </li>
+        </ul>
+        <FirstComponent></FirstComponent>
+
+
+      </div>
     )
-      
+
   }
 }

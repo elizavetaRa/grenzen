@@ -18,6 +18,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Exhibition from "./components/exhibition/index.jsx";
 import Exhibit from "./components/exhibition/exhibit";
 import Blog from "./components/Blog/index"
+import Contact from "./components/Contact"
 
 
 class Application extends React.Component {
@@ -69,6 +70,10 @@ class Application extends React.Component {
                         </Route>
                         <Route exact path="/blog">
                             <Blog />
+                        </Route>
+
+                        <Route exact path="/kontakt">
+                            <Contact />
                         </Route>
                     </Switch>
                     <Footer></Footer>

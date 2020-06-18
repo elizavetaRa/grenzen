@@ -10,9 +10,12 @@ class footer extends Component {
       <div className="d-flex flex-column">
 
         <footer className="page-footer bg-dark font-small mdb-color lighten-3 pt-4">
-          <h4>Partners</h4>
+
 
           <div className="container">
+            <h4 className="text-center">Partners</h4>
+            <br></br>
+
             <div className="row">
 
               <div className="col-sm thumb">

@@ -9,7 +9,7 @@ class index extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 <div className="card-columns">
 
 

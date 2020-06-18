@@ -17,12 +17,11 @@ class Element extends Component {
                 <Card >
                     <Card.Img variant="top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>News Titel</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                            Etwas spannendes zu berichten hier. Total spannend, guckt rein.
     </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button variant="primary">Mehr</Button>
                     </Card.Body>
                 </Card>
             </div>
