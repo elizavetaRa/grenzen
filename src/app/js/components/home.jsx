@@ -17,7 +17,7 @@ class home extends Component {
             </div>
             <div class="col-sm text-center">
               <h1>
-                <br></br>
+                <h1>Hello, {this.props.user ? this.props.user.email : 'Stranger'}!</h1>
               </h1>
             </div>
           </div>
