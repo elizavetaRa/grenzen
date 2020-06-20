@@ -38,6 +38,7 @@ class Application extends React.Component {
     }
 
     render() {
+        console.log(this.state.user)
         return (
             <BrowserRouter>
                 <div>
@@ -58,7 +59,7 @@ class Application extends React.Component {
                         <Route exact path="/">
                             <div className="bg">
 
-                                <Home></Home>
+                                <Home user={this.state.user}></Home>
                             </div>
                         </Route>
                         <Route exact path="/current-project">
@@ -75,6 +76,19 @@ class Application extends React.Component {
                         <Route exact path="/kontakt">
                             <Contact />
                         </Route>
+
+                        <Route exact path="/admin">
+                            <Navigation />
+                        </Route>
+
+
+
+                        <Route
+                            path="/auth"
+                            render={() => <Auth setUser={this._setUser} resetUser={this._resetUser} />}
+                        />
+                        <Route component={NotFound} />
+
                     </Switch>
                     <Footer></Footer>
                 </div>
