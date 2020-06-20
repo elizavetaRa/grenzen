@@ -14,10 +14,10 @@ const config = require('./config')
 const apiRoutes = require('./routes/api')
 const appRoutes = require('./routes/app')
 
-mongoose.connect(
+/*mongoose.connect(
     config.MONGODB_URI,
     { useNewUrlParser: true }
-)
+)*/
 
 const server = express()
 
@@ -35,7 +35,11 @@ server.use(express.static(path.join(__dirname, 'public')))
 server.use('/api', apiRoutes)
 server.use(appRoutes)
 
-mongoose.connection.on('connected', () => {
+server.listen(config.PORT, () => {
+    console.log(chalk.blue.bold('Server is up and running: http://localhost:' + config.PORT))
+})
+
+/*mongoose.connection.on('connected', () => {
     console.log(chalk.blue.bold('Connected to Mongo!'))
 
     // this is sometimes necessary to prevent mongoose errors
@@ -45,4 +49,4 @@ mongoose.connection.on('connected', () => {
     server.listen(config.PORT, () => {
         console.log(chalk.blue.bold('Server is up and running: http://localhost:' + config.PORT))
     })
-})
+})*/
