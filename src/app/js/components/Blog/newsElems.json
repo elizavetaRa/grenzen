@@ -3,8 +3,8 @@
         {
             "id": 111,
             "date": "10.09.1993",
-            "Title": "News Title",
-            "TextContent": "html stuff",
+            "title": "News Title",
+            "content": "html stuff",
             "image": "",
             "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
             "hashtags": [
