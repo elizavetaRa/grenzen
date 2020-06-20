@@ -2,9 +2,9 @@
     "data": [
         {
             "id": 111,
-            "date": "10.09.1993",
+            "date": 1592692021596,
             "title": "News Title",
-            "content": "html stuff",
+            "content": "<ul><li>Привет</li><li>Привет</li><li>Привет</li></ul>",
             "image": "",
             "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
             "hashtags": [
@@ -14,9 +14,9 @@
         },
         {
             "id": 111,
-            "date": "10.09.1993",
-            "Title": "Second Title",
-            "TextContent": "html stuff",
+            "date": 1592692021596,
+            "title": "Second Title",
+            "content": "<ul><li>Привет</li><li>Привет</li><li>Привет</li></ul>",
             "image": "",
             "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
             "hashtags": [
@@ -26,9 +26,9 @@
         },
         {
             "id": 111,
-            "date": "10.09.1993",
-            "Title": "Third Title",
-            "TextContent": "html stuff",
+            "date": 1592692021596,
+            "title": "Third Title",
+            "content": "<ul><li>Привет</li><li>Привет</li><li>Привет</li></ul>",
             "image": "",
             "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
             "hashtags": [
