@@ -6,23 +6,35 @@
             "Title": "News Title",
             "TextContent": "html stuff",
             "image": "",
-            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g"
+            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
+            "hashtags": [
+                "new",
+                "title"
+            ]
         },
         {
             "id": 111,
             "date": "10.09.1993",
-            "Title": "News Title",
+            "Title": "Second Title",
             "TextContent": "html stuff",
             "image": "",
-            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g"
+            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
+            "hashtags": [
+                "second",
+                "title"
+            ]
         },
         {
             "id": 111,
             "date": "10.09.1993",
-            "Title": "News Title",
+            "Title": "Third Title",
             "TextContent": "html stuff",
             "image": "",
-            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g"
+            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
+            "hashtags": [
+                "third",
+                "title"
+            ]
         }
     ]
 }
