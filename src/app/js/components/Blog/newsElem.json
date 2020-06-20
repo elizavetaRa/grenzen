@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id": 111,
+            "date": "10.09.1993",
+            "Title": "News Title",
+            "TextContent": "html stuff",
+            "image": "",
+            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g"
+        },
+        {
+            "id": 111,
+            "date": "10.09.1993",
+            "Title": "News Title",
+            "TextContent": "html stuff",
+            "image": "",
+            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g"
+        },
+        {
+            "id": 111,
+            "date": "10.09.1993",
+            "Title": "News Title",
+            "TextContent": "html stuff",
+            "image": "",
+            "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g"
+        }
+    ]
+}
