@@ -2,3 +2,6 @@ node_modules/
 dist/
 .cache/
 src/server/public/app/
+.idea/
+yarn-error.log
+yarn.lock

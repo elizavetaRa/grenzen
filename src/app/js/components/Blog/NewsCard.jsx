@@ -1,38 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-    Card,
-    Button,
+    Card
 } from "react-bootstrap";
-import data from "./newsElems.json"
+import moment from 'moment-with-locales-es6';
 
 
-class NewsCard extends Component {
+const NewsCard = ({card}) => {
+    const formatDate = (date) => {
+        moment.locale('de');
+        return moment(new Date(date)).format('L');
+    };
 
-    constructor(props) {
-        super(props);
+    const cardDate = formatDate(card.date);
 
-    }
-
-
-    render() {
-
-        console.log(data)
-        return (
-            <div>
-                <Card>
-                    {/*<Card.Img variant="top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" />*/}
-                    <Card.Body>
-                        <Card.Title>{data.data[0].title}</Card.Title>
-                        <Card.Text>
-                            {data.data[0].content}
-                        </Card.Text>
-
-                    </Card.Body>
-                </Card>
-            </div>
-        );
-    }
-}
+    return  (
+        <div>
+            <Card>
+                {/*<Card.Img variant="top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" />*/}
+                <Card.Body>
+                    <Card.Title>{ card.title }</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{ cardDate }</Card.Subtitle>
+                    <Card.Text>
+                        <iframe className='news-card' srcDoc={ card.content }></iframe>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </div>
+    );
+};
 
 export default NewsCard;
 
