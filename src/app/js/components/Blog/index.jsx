@@ -57,7 +57,7 @@ const index = props => {
         //get array of arrays (length 5) items
 
         api.get(
-            `/api/auth/newsitems`
+            `https://grenzen.herokuapp.com/api/auth/newsitems`
         ).then(data => {
             console.log("got data", data)
         })
