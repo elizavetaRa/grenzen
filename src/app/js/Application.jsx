@@ -17,13 +17,14 @@ import Home from "./components/home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Exhibition from "./components/exhibition/index.jsx";
 import Exhibit from "./components/exhibition/exhibit";
-import Blog from "./components/Blog/index"
-import Contact from "./components/Contact"
+import Blog from "./components/Blog/index";
+import Editor from "./components/Blog/Editor/Editor";
+import Contact from "./components/Contact";
 
 
 class Application extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             user: this._setUser(true),
@@ -38,7 +39,6 @@ class Application extends React.Component {
     }
 
     render() {
-        console.log(this.state.user)
         return (
             <BrowserRouter>
                 <div className="grenzen-container">
@@ -58,7 +58,6 @@ class Application extends React.Component {
                     <Switch>
                         <Route exact path="/">
                             <div className="bg">
-
                                 <Home user={this.state.user}></Home>
                             </div>
                         </Route>
@@ -71,6 +70,10 @@ class Application extends React.Component {
                         </Route>
                         <Route exact path="/blog">
                             <Blog />
+                        </Route>
+
+                        <Route exact path="/blog/new">
+                            <Editor />
                         </Route>
 
                         <Route exact path="/kontakt">

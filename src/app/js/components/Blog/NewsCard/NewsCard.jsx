@@ -2,14 +2,13 @@ import React from 'react';
 import {
     Card
 } from "react-bootstrap";
-import moment from 'moment-with-locales-es6';
+import moment from 'moment';
 import './NewsCard.scss';
 
 
 const NewsCard = ({card}) => {
     const formatDate = (date) => {
-        moment.locale('de');
-        return moment(new Date(date)).format('L');
+        return moment(new Date(date)).format('DD.MM.YYYY');
     };
 
     const cardDate = formatDate(card.date);

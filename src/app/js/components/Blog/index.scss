@@ -1,7 +1,16 @@
 .blog-container {
-  position: relative;
+  display: flex;
 
   &__news-card {
     margin-bottom: 5px;
+  }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__empty {
+    flex-grow: 1;
   }
 }
