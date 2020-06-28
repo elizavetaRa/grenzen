@@ -30,14 +30,11 @@ const newsItemSchema = new Schema({
         unique: false,
     },
 
-    hashtags:
-        [{
-            type: String,
-            required: true,
-            unique: false,
-        }]
-
-
+    hashtags: [{
+        type: String,
+        required: true,
+        unique: false,
+    }]
 })
 
 module.exports = mongoose.model('NewsItem', newsItemSchema)
