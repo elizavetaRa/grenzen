@@ -9,6 +9,7 @@ const mock = {
     "date": 12163234823,
     "title": "News Title",
     "content": "html stuff",
+    "preview": "Abracadabra Abracadabra Abracadabra Abracadabra Abracadabra",
     "image": "image",
     "youtube": "https://www.youtube.com/embed/BsWIe7YvF5g",
     "hashtags": [
@@ -22,26 +23,26 @@ const mock = {
 const index = props => {
 
     useEffect(() => {
-        /*   console.log("entered useEffect")
+        /*  
    
-   
-           console.log(api.post(
-               `/api/auth/newsexhibit`, mock
-           ))
-   
-           api.post(
-               `/api/auth/newexhibit`, mock
-           )
-               .then(data => {
-                   console.log("got data", data)
-               })
-               .catch(err => {
-                   console.log(err)
-               })*/
+        //create  new NewsItem, returns id
 
-        //5ef8ccb95ea47930740b8210
+        api.post(
+            `/api/auth/newsitem`, mock
+        )
+            .then(data => {
+                console.log("got data", data)
+            })
+            .catch(err => {
+                console.log(err)
+            })*/
 
-        api.get(
+
+
+        //get NewsItem by id, returns item object
+        // example_id: "5ef8ccb95ea47930740b8210"
+
+        /*api.get(
             `/api/auth/newsitem/${"5ef8ccb95ea47930740b8210"}`
         )
             .then(data => {
@@ -49,18 +50,38 @@ const index = props => {
             })
             .catch(err => {
                 console.log(err)
+            })*//**/
+
+
+
+        //get array of arrays (length 5) items
+
+        api.get(
+            `/api/auth/newsitems`
+        ).then(data => {
+            console.log("got data", data)
+        })
+            .catch(err => {
+                console.log(err)
             })
+
+        // edit post with given id, returns id of edited item
+
+        /*api.post(`/api/auth/edit-newsitem/${"5ef8ccb95ea47930740b8210"}`).then(data => {
+            console.log("got data", data)
+        })
+            .catch(err => {
+                console.log(err)
+            })*/
 
     }, []);
 
     return (
         <div>
             <div className="card-columns">
-
                 <NewsCard></NewsCard>
                 <NewsCard></NewsCard>
                 <NewsCard></NewsCard>
-
             </div>
         </div>
     );

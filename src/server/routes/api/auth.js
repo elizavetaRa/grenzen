@@ -103,6 +103,7 @@ router.post('/newsitem', (req, res) => {
     const {
         title,
         content,
+        preview,
         date,
         image,
         youtube,
@@ -135,6 +136,56 @@ router.get('/newsitem/:id', (req, res) => {
         });
     }).catch(err => res.send(err));
 
+})
+
+router.get('/newsitems', (req, res) => {
+    const page = req.params.page
+
+
+    const chunks = []
+
+    //Skip and limit
+    const items = NewsItem.find().then(items => {
+
+        let i = 0;
+        let n = items.length;
+
+        while (i < n) {
+            chunks.push(items.slice(i, i += 5));
+        }
+
+        res.send(chunks)
+    })
+})
+
+router.post('/edit-newsitem/:id', (req, res) => {
+    const {
+        id,
+        title,
+        content,
+        preview,
+        date,
+        image,
+        youtube,
+        hashtags
+    } = req.body
+
+    NewsItem.findByIdAndUpdate(id, {
+        title,
+        content,
+        preview,
+        date,
+        image,
+        youtube,
+        hashtags
+    }, {
+        new: true
+    }).then(newsItem => {
+        let id = newsItem._id;
+        res.send({
+            id
+        })
+    }).catch(err => res.send(err))
 })
 
 module.exports = router

@@ -12,7 +12,11 @@ const newsItemSchema = new Schema({
         required: true,
         unique: false,
     },
-
+    preview: {
+        type: String,
+        required: true,
+        unique: false,
+    },
     date: {
         type: Number,
         required: true,
