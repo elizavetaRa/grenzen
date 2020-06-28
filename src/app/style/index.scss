@@ -6,3 +6,9 @@ $grey: rgb(200, 200, 200);
 @import './base.scss';
 @import './components.scss';
 @import './navigation.scss';
+
+.grenzen-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}

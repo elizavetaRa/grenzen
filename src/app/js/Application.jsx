@@ -41,7 +41,7 @@ class Application extends React.Component {
         console.log(this.state.user)
         return (
             <BrowserRouter>
-                <div>
+                <div className="grenzen-container">
 
                     <Header></Header>
                     {/* <Navigation user={this.state.user} />

@@ -6,7 +6,7 @@ function renderApp() {
     ReactDOM.render(<Application />, document.getElementById('app'))
 }
 
-renderApp()
+renderApp();
 
 if (module.hot) {
     module.hot.accept(renderApp)
