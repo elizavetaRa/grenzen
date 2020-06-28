@@ -23,8 +23,8 @@ const mock = {
 const index = props => {
 
     useEffect(() => {
-        /*  
-   
+
+
         //create  new NewsItem, returns id
 
         api.post(
@@ -35,7 +35,7 @@ const index = props => {
             })
             .catch(err => {
                 console.log(err)
-            })*/
+            })/**/
 
 
 
@@ -56,23 +56,23 @@ const index = props => {
 
         //get array of arrays (length 5) items
 
-        api.get(
-            `https://grenzen.herokuapp.com/api/auth/newsitems`
-        ).then(data => {
-            console.log("got data", data)
-        })
-            .catch(err => {
-                console.log(err)
-            })
-
-        // edit post with given id, returns id of edited item
-
-        /*api.post(`/api/auth/edit-newsitem/${"5ef8ccb95ea47930740b8210"}`).then(data => {
-            console.log("got data", data)
-        })
-            .catch(err => {
-                console.log(err)
-            })*/
+        /*  api.get(
+              `https://grenzen.herokuapp.com/api/auth/newsitems`
+          ).then(data => {
+              console.log("got data", data)
+          })
+              .catch(err => {
+                  console.log(err)
+              })
+  
+          // edit post with given id, returns id of edited item
+  
+          /*api.post(`/api/auth/edit-newsitem/${"5ef8ccb95ea47930740b8210"}`).then(data => {
+              console.log("got data", data)
+          })
+              .catch(err => {
+                  console.log(err)
+              })*/
 
     }, []);
 

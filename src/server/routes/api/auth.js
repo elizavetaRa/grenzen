@@ -8,6 +8,7 @@ const upload = require('../../utils/upload')
 const NewsItem = require("../../models/NewsItem")
 
 
+
 router.post('/sign-up', (req, res) => {
     const {
         email,
@@ -113,6 +114,7 @@ router.post('/newsitem', (req, res) => {
     const newsItem = new NewsItem({
         title,
         content,
+        preview,
         date,
         image,
         youtube,
