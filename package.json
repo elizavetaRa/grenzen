@@ -37,6 +37,7 @@
         "react-page-scroller": "^2.0.7-beta",
         "react-router": "^4.3.1",
         "react-router-dom": "^4.3.1",
+        "src": "^1.1.2",
         "suneditor-react": "^2.12.3"
     },
     "devDependencies": {

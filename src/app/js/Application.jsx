@@ -76,6 +76,10 @@ class Application extends React.Component {
                             <Editor />
                         </Route>
 
+                        <Route exact path="/blog/edit/:id">
+                            <Editor />
+                        </Route>
+
                         <Route exact path="/kontakt">
                             <Contact />
                         </Route>
