@@ -84,14 +84,11 @@ class Application extends React.Component {
                             <Contact />
                         </Route>
 
-                        <Route exact path="/admin">
-                            <Navigation />
-                        </Route>
 
 
 
                         <Route
-                            path="/auth"
+                            path="/admin"
                             render={() => <Auth setUser={this._setUser} resetUser={this._resetUser} />}
                         />
                         <Route component={NotFound} />

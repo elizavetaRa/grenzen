@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Home = props => {
+
     return (
         <div className="container">
-            <h1>Hello, {props.user ? props.user.email : 'Stranger'}!</h1>
+            {props.user && (<h1>Du bist im Admin-Modus</h1>)}
         </div>
     )
 }

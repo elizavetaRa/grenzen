@@ -7,7 +7,12 @@ const config = require('../../config')
 const upload = require('../../utils/upload')
 const NewsItem = require("../../models/NewsItem")
 
+const {
+    userMiddleware,
+    checkLoggedIn
+} = require('../../utils/middleware')
 
+router.use(userMiddleware)
 
 router.post('/sign-up', (req, res) => {
     const {
@@ -100,7 +105,7 @@ router.post('/update', (req, res) => {
     })
 })
 
-router.post('/newsitem', (req, res) => {
+router.post('/newsitem', checkLoggedIn, (req, res) => {
     const {
         title,
         content,
@@ -130,9 +135,12 @@ router.post('/newsitem', (req, res) => {
 router.get('/newsitem/:id', (req, res) => {
     const id = req.params.id
 
-    console.log("id", id)
 
     NewsItem.findById(id).then(item => {
+
+        delete Object.assign(item, {
+            id: item._id
+        })._id;
         res.send({
             item
         });
@@ -149,6 +157,10 @@ router.get('/newsitems', (req, res) => {
     //Skip and limit
     const items = NewsItem.find().then(items => {
 
+        items.forEach(item => (delete Object.assign(item, {
+            id: item._id
+        })._id))
+
         let i = 0;
         let n = items.length;
 
@@ -160,7 +172,7 @@ router.get('/newsitems', (req, res) => {
     })
 })
 
-router.post('/edit-newsitem/:id', (req, res) => {
+router.post('/edit-newsitem/:id', checkLoggedIn, (req, res) => {
     const {
         id,
         title,

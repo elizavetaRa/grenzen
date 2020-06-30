@@ -27,7 +27,7 @@ class Auth extends Component {
     render() {
         return (
             <Switch>
-                <Route
+                {/**  <Route
                     exact
                     path="/auth/sign-up"
                     render={() => (
@@ -39,10 +39,10 @@ class Auth extends Component {
                             sign={this._sign}
                         />
                     )}
-                />
+                />*/}
                 <Route
                     exact
-                    path="/auth/sign-in"
+                    path="/admin"
                     render={() => (
                         <SignIn
                             handleInputChange={this._handleInputChange}
@@ -55,7 +55,7 @@ class Auth extends Component {
                 />
                 <Route
                     exact
-                    path="/auth/logout"
+                    path="/admin/logout"
                     render={() => <Logout resetUser={this.props.resetUser} />}
                 />
                 <Route component={NotFound} />
