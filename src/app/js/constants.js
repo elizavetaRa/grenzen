@@ -1,3 +1,1 @@
-export const SERVER_NAME = "";
-
-//'https://grenzen.herokuapp.com';
+export const SERVER_NAME = 'https://grenzen.herokuapp.com';
