@@ -138,11 +138,27 @@ router.get('/newsitem/:id', (req, res) => {
 
     NewsItem.findById(id).then(item => {
 
-        delete Object.assign(item, {
-            id: item._id
-        })._id;
+        const {
+            title,
+            content,
+            preview,
+            date,
+            image,
+            youtube,
+            hashtags
+        } = item
+
         res.send({
-            item
+            item: {
+                id: item._id,
+                title,
+                content,
+                preview,
+                date,
+                image,
+                youtube,
+                hashtags
+            }
         });
     }).catch(err => res.send(err));
 
@@ -157,9 +173,17 @@ router.get('/newsitems', (req, res) => {
     //Skip and limit
     const items = NewsItem.find().then(items => {
 
-        items.forEach(item => (delete Object.assign(item, {
-            id: item._id
-        })._id))
+        /*  let mod = [
+              ...items
+          ]
+
+
+
+
+          mod.forEach(item => {
+              item["id"] = "item._id"
+          })
+          console.log(mod)*/
 
         let i = 0;
         let n = items.length;
@@ -173,8 +197,9 @@ router.get('/newsitems', (req, res) => {
 })
 
 router.post('/edit-newsitem/:id', checkLoggedIn, (req, res) => {
+    const id = req.params.id
+
     const {
-        id,
         title,
         content,
         preview,
