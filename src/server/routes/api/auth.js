@@ -134,31 +134,9 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
 
 router.get('/newsitem/:id', (req, res) => {
     const id = req.params.id
-
-
     NewsItem.findById(id).then(item => {
-
-        const {
-            title,
-            content,
-            preview,
-            date,
-            image,
-            youtube,
-            hashtags
-        } = item
-
         res.send({
-            item: {
-                id: item._id,
-                title,
-                content,
-                preview,
-                date,
-                image,
-                youtube,
-                hashtags
-            }
+            item
         });
     }).catch(err => res.send(err));
 
@@ -166,24 +144,10 @@ router.get('/newsitem/:id', (req, res) => {
 
 router.get('/newsitems', (req, res) => {
     const page = req.params.page
-
-
     const chunks = []
 
     //Skip and limit
     const items = NewsItem.find().then(items => {
-
-        /*  let mod = [
-              ...items
-          ]
-
-
-
-
-          mod.forEach(item => {
-              item["id"] = "item._id"
-          })
-          console.log(mod)*/
 
         let i = 0;
         let n = items.length;
@@ -198,7 +162,6 @@ router.get('/newsitems', (req, res) => {
 
 router.post('/edit-newsitem/:id', checkLoggedIn, (req, res) => {
     const id = req.params.id
-
     const {
         title,
         content,
