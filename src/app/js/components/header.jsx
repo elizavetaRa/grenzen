@@ -25,7 +25,7 @@ class Header extends Component {
         <div>
           <div className="row">
             <div className="col-md-12">
-              <Navbar
+              {/* <Navbar
                 bg="dark"
                 variant="dark"
                 expand="lg"
@@ -38,9 +38,9 @@ class Header extends Component {
                   <Nav className="mr-auto">
                     {/*<Nav.Link href="/current-project">
                       Aktuelles Projekt
-                    </Nav.Link>*/}
+                    </Nav.Link>
 
-                    {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
+                    <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/current-project">
                         GRENZEN
                       </NavDropdown.Item>
@@ -57,10 +57,10 @@ class Header extends Component {
 
 
 
-                    <Nav.Link href="/blog">Blog</Nav.Link>
-                    <Nav.Link href="/über">Über uns</Nav.Link>
-                    <Nav.Link href="/kontakt">Kontakt</Nav.Link>
-                    {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
+              <Nav.Link href="/blog">Blog</Nav.Link>
+              <Nav.Link href="/über">Über uns</Nav.Link>
+              <Nav.Link href="/kontakt">Kontakt</Nav.Link>
+              {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">
                         Action
                       </NavDropdown.Item>
@@ -74,11 +74,11 @@ class Header extends Component {
                       <NavDropdown.Item href="#action/3.4">
                         Separated link
                       </NavDropdown.Item>
-                    </NavDropdown>*/}
+                    </NavDropdown>
                   </Nav>
 
                 </Navbar.Collapse>
-              </Navbar>
+              </Navbar>*/}
             </div>
           </div>
         </div>
