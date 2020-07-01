@@ -14,12 +14,9 @@ class home extends Component {
             <div class="col-sm text-center d-flex flex-column align-items-center justify-content-center">
               <h1>Kunstform Wissenschaft</h1>
               <br></br>
-              <p>Beschreibung hier</p>
+              <p>Beschreibung hier. Lorem ipsum dolore Lorem ipsum dolore Lorem ipsum dolore Lorem ipsum dolore</p>
             </div>
             <div class="col-sm text-center">
-              <h1>
-                <h1>Hello, {this.props.user ? this.props.user.email : 'Stranger'}!</h1>
-              </h1>
             </div>
           </div>
         </div>
