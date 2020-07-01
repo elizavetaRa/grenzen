@@ -19,6 +19,7 @@ import Exhibition from "./components/exhibition/index.jsx";
 import Exhibit from "./components/exhibition/exhibit";
 import Blog from "./components/Blog/index";
 import Editor from "./components/Blog/Editor/Editor";
+import Post from "./components/Blog/Post/Post";
 import Contact from "./components/Contact";
 
 
@@ -68,8 +69,13 @@ class Application extends React.Component {
                         <Route exact path="/current-project/exponat1">
                             <Exhibit />
                         </Route>
+
                         <Route exact path="/blog">
                             <Blog />
+                        </Route>
+
+                        <Route exact path="/blog/post/:id">
+                            <Post />
                         </Route>
 
                         <Route exact path="/blog/new">
