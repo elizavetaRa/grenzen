@@ -24,6 +24,7 @@ const Post = (props) => {
     const postId = props.match.params.id ? props.match.params.id : null;
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         if (postId) {
             api.get(
                 `${SERVER_NAME}/api/auth/newsitem/${postId}`

@@ -12,7 +12,7 @@ import './Editor.scss';
 import { SERVER_NAME } from "../../../constants";
 import api from "../../../utils/api";
 
-const Editor = (props) => {
+const Editor = withRouter((props) => {
     const [editorContent, setEditorContent] = useState('');
     const [post, setPost] = useState({
         title: '',
@@ -57,16 +57,22 @@ const Editor = (props) => {
     function saveResults() {
         const postToSend = {...post, content: editorContent, date: Date.now()};
 
+        const onSaveResults = (id) => {
+            props.history.push(`/blog/post/${id}`);
+        };
+
         if (postId) {
             api.post(
                 `${SERVER_NAME}/api/auth/edit-newsitem/${postId}`, postToSend
-            ).catch(err => {
+            ).then(() => onSaveResults(postId)).catch(err => {
                 console.log('Server responded with error!')
             })
         } else {
             api.post(
                 `${SERVER_NAME}/api/auth/newsitem`, postToSend
-            ).catch(err => {
+            ).then((data) => {
+                onSaveResults(data.id);
+            }).catch(err => {
                 console.log('Server responded with error!')
             })
         }
@@ -126,10 +132,10 @@ const Editor = (props) => {
             </Button>
         </div>
     );
-};
+});
 
 Editor.propTypes = {
 
 };
 
-export default withRouter(Editor);
+export default Editor;
