@@ -25,14 +25,14 @@ class Header extends Component {
         <div>
           <div className="row">
             <div className="col-md-12">
-              {/* <Navbar
+              <Navbar
                 bg="dark"
                 variant="dark"
                 expand="lg"
                 sticky="top"
                 className=".transparent"
               >
-                <Navbar.Brand href="/">Kunstform Wissenschaft</Navbar.Brand>
+                {/*  <Navbar.Brand href="/">Kunstform Wissenschaft</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
@@ -57,10 +57,10 @@ class Header extends Component {
 
 
 
-              <Nav.Link href="/blog">Blog</Nav.Link>
-              <Nav.Link href="/über">Über uns</Nav.Link>
-              <Nav.Link href="/kontakt">Kontakt</Nav.Link>
-              {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
+                <Nav.Link href="/blog">Blog</Nav.Link>
+                <Nav.Link href="/über">Über uns</Nav.Link>
+                <Nav.Link href="/kontakt">Kontakt</Nav.Link>
+                {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">
                         Action
                       </NavDropdown.Item>
@@ -75,14 +75,14 @@ class Header extends Component {
                         Separated link
                       </NavDropdown.Item>
                     </NavDropdown>
-                  </Nav>
+                  </Nav>*/}
 
                 </Navbar.Collapse>
-              </Navbar>*/}
-            </div>
+              </Navbar>
           </div>
         </div>
       </div>
+      </div >
     );
   }
 }
