@@ -40,15 +40,11 @@ const Post = (props) => {
 
     return (
         <div className="post">
-            <Container>
-                <Card>
-                    <Card.Title>
-                        <div className="">{post.title}</div>
-                    </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{ moment(new Date()).format('DD.MM.YYYY') }</Card.Subtitle>
-                    <iframe className="post__content" srcDoc={post.content}></iframe>
-                </Card>
-            </Container>
+            <div className="post__container container">
+                <h2 className="post__title">{post.title}</h2>
+                <div className="post__sub-title">{ moment(new Date()).format('DD.MM.YYYY') }</div>
+                <iframe className="post__content" srcDoc={post.content}></iframe>
+            </div>
         </div>
     );
 };

@@ -6,7 +6,10 @@
   padding: 10px;
   font-size: 14px;
 
+  &__container {}
+
   &__content {
+    min-height: 200px;
     border: none;
   }
 }
