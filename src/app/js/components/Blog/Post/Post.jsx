@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {withRouter} from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
 import {
     Card, Container
 } from "react-bootstrap";
@@ -31,20 +31,20 @@ const Post = (props) => {
             ).then(data => {
                 setPost(data.item);
             })
-            .catch(err => {
-                console.log(err)
-            })
+                .catch(err => {
+                    console.log(err)
+                })
         }
 
-        return () => {}
+        return () => { }
     }, [postId]);
 
     return (
         <div className="post">
             <div className="post__container container">
                 <h2 className="post__title">{post.title}</h2>
-                <div className="post__sub-title">{ moment(new Date()).format('DD.MM.YYYY') }</div>
-                <iframe className="post__content" srcDoc={post.content}></iframe>
+                <div className="post__sub-title">{moment(new Date()).format('DD.MM.YYYY')}</div>
+                <iframe className="post__content container" srcDoc={post.content}></iframe>
             </div>
         </div>
     );
