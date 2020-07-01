@@ -64,14 +64,16 @@ const index = () => {
 
                         <ReactPaginate
                             pageCount={postsList.length}
-                            pageRangeDisplayed="6"
-                            marginPagesDisplayed="6"
+                            previousLabel={'<<'}
+                            nextLabel={'>>'}
+                            pageRangeDisplayed={4}
+                            marginPagesDisplayed={3}
                             containerClassName="blog-container__pagination"
                             pageClassName="pagination-btn"
                             activeClassName="pagination-active-btn"
-                            previousClassName="pagination-arrow-btn pagination-prev-btn"
-                            nextClassName="pagination-arrow-btn pagination-next-btn"
-                            breakLinkClassName="pagination-break-link"
+                            previousClassName="pagination-arrow-btn"
+                            nextClassName="pagination-arrow-btn"
+                            breakClassName="pagination-break"
                             onPageChange={(event) => handlePageClick(event)}></ReactPaginate>
                     </Col>
                     <Col md={2}></Col>
