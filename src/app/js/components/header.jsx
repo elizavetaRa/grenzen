@@ -40,7 +40,7 @@ class Header extends Component {
                       Aktuelles Projekt
                     </Nav.Link>*/}
 
-                    <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
+                    {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/current-project">
                         GRENZEN
                       </NavDropdown.Item>
@@ -53,7 +53,7 @@ class Header extends Component {
                       <NavDropdown.Item href="/öffentlichkeit">
                         Öffentlichkeit
                       </NavDropdown.Item>
-                    </NavDropdown>
+                  </NavDropdown>*/}
 
 
 
