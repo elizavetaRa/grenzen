@@ -35,10 +35,10 @@ class Header extends Component {
                 <Navbar.Brand href="/">Kunstform Wissenschaft</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="mr-auto">
+                  {/* <Nav className="mr-auto">
                     {/*<Nav.Link href="/current-project">
                       Aktuelles Projekt
-                    </Nav.Link>*/}
+                    </Nav.Link>
 
                     <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/current-project">
@@ -47,20 +47,20 @@ class Header extends Component {
                       <NavDropdown.Item href="/digitalisierung">
                         Digitalisierung
                       </NavDropdown.Item>
-                    </NavDropdown>
+                    </NavDropdown>*/}
 
-                    <NavDropdown title="Archiv" id="basic-nav-dropdown">
+                  {/*  <NavDropdown title="Archiv" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/öffentlichkeit">
                         Öffentlichkeit
                       </NavDropdown.Item>
-                    </NavDropdown>
+                  </NavDropdown>*/}
 
 
 
-                    <Nav.Link href="/blog">Blog</Nav.Link>
-                    <Nav.Link href="/über">Über uns</Nav.Link>
-                    <Nav.Link href="/kontakt">Kontakt</Nav.Link>
-                    {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
+                  <Nav.Link href="/blog">Blog</Nav.Link>
+                  <Nav.Link href="/über">Über uns</Nav.Link>
+                  <Nav.Link href="/kontakt">Kontakt</Nav.Link>
+                  {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">
                         Action
                       </NavDropdown.Item>
@@ -74,15 +74,15 @@ class Header extends Component {
                       <NavDropdown.Item href="#action/3.4">
                         Separated link
                       </NavDropdown.Item>
-                    </NavDropdown>*/}
-                  </Nav>
+                    </NavDropdown>
+                  </Nav>*/}
 
                 </Navbar.Collapse>
               </Navbar>
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

@@ -147,7 +147,9 @@ router.get('/newsitems', (req, res) => {
     const chunks = []
 
     //Skip and limit
-    const items = NewsItem.find().then(items => {
+    const items = NewsItem.find().sort({
+        _id: -1
+    }).then(items => {
 
         let i = 0;
         let n = items.length;
