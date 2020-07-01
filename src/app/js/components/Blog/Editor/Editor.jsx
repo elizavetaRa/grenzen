@@ -100,7 +100,7 @@ const Editor = (props) => {
                                                ['undo', 'redo', 'removeFormat'],
                                                ['font', 'fontSize', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
                                                ['align', 'indent', 'outdent', 'list'],
-                                               ['link']
+                                               ['link', 'image', 'video']
                                            ]
                                        }}
                                        onChange={ handleChangeContent }

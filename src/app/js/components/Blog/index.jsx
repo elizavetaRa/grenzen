@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
     Container, Row, Col, Dropdown, Button, ButtonGroup
 } from "react-bootstrap";
+import ReactPaginate from 'react-paginate';
 
 import NewsCard from "./NewsCard/NewsCard"
 import { SERVER_NAME } from "../../constants";
@@ -25,9 +26,9 @@ const index = () => {
             })
     }, []);
 
-    function handlePageClick(pageNumber) {
-        setPageNumber(pageNumber);
+    function handlePageClick(event) {
         window.scrollTo(0, 0);
+        setPageNumber(event.selected);
     }
 
     return (
@@ -61,11 +62,19 @@ const index = () => {
                             )) : null
                         }
 
-                        <div className="blog-container__pagination">
-                            <ButtonGroup className="mr-2" aria-label="Pagination">
-                                {postsList.map((posts, index) => <Button onClick={() => handlePageClick(index)}>{index + 1}</Button>)}
-                            </ButtonGroup>
-                        </div>
+                        <ReactPaginate
+                            pageCount={postsList.length}
+                            previousLabel={'<<'}
+                            nextLabel={'>>'}
+                            pageRangeDisplayed={4}
+                            marginPagesDisplayed={3}
+                            containerClassName="blog-container__pagination"
+                            pageClassName="pagination-btn"
+                            activeClassName="pagination-active-btn"
+                            previousClassName="pagination-arrow-btn"
+                            nextClassName="pagination-arrow-btn"
+                            breakClassName="pagination-break"
+                            onPageChange={(event) => handlePageClick(event)}></ReactPaginate>
                     </Col>
                     <Col md={2}></Col>
                 </Row>
