@@ -17,7 +17,7 @@ const Post = (props) => {
         content: '',
         preview: '',
         date: 0,
-        image: 'https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=fda28812dc06498b55f2e615455183c3',
+        image: '',
         youtube: 'https://www.youtube.com/watch?v=WEkSYw3o5is',
         hashtags: []
     });
@@ -27,8 +27,9 @@ const Post = (props) => {
         window.scrollTo(0, 0);
         if (postId) {
             api.get(
-                `${SERVER_NAME}/api/auth/newsitem/${postId}`
+                `${SERVER_NAME}/api/blog/newsitem/${postId}`
             ).then(data => {
+                console.log(data.item)
                 setPost(data.item);
             })
                 .catch(err => {
@@ -44,7 +45,9 @@ const Post = (props) => {
             <div className="post__container container">
                 <h2 className="post__title">{post.title}</h2>
                 <div className="post__sub-title">{moment(new Date()).format('DD.MM.YYYY')}</div>
+                {post.image && <img border="0" alt="image" src={post.image} width="200"></img>}
                 <iframe className="post__content container" srcDoc={post.content}></iframe>
+
             </div>
         </div>
     );

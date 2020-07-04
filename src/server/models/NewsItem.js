@@ -24,19 +24,19 @@ const newsItemSchema = new Schema({
     },
     image: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
 
     youtube: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
 
     hashtags: [{
         type: String,
-        required: true,
+        required: false,
         unique: false,
     }]
 })

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   Navbar,
   Nav,
@@ -32,10 +33,13 @@ class Header extends Component {
                 sticky="top"
                 className=".transparent"
               >
+
+
                 <Navbar.Brand href="/">Kunstform Wissenschaft</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                  {/* <Nav className="mr-auto">
+                  <Nav className="mr-auto">
+                    {/* <Nav className="mr-auto">
                     {/*<Nav.Link href="/current-project">
                       Aktuelles Projekt
                     </Nav.Link>
@@ -49,7 +53,7 @@ class Header extends Component {
                       </NavDropdown.Item>
                     </NavDropdown>*/}
 
-                  {/*  <NavDropdown title="Archiv" id="basic-nav-dropdown">
+                    {/*  <NavDropdown title="Archiv" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/öffentlichkeit">
                         Öffentlichkeit
                       </NavDropdown.Item>
@@ -57,25 +61,27 @@ class Header extends Component {
 
 
 
-                  <Nav.Link href="/blog">Blog</Nav.Link>
-                  <Nav.Link href="/über">Über uns</Nav.Link>
-                  <Nav.Link href="/kontakt">Kontakt</Nav.Link>
-                  {/* <NavDropdown title="Aktuelles Projekt" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="#action/3.1">
-                        Action
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Another action
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </Nav>*/}
+                    <Nav.Link href="/blog">Blog</Nav.Link>
+                    <Nav.Link href="/über">Über uns</Nav.Link>
+                    <Nav.Link href="/kontakt">Kontakt</Nav.Link>
+
+
+                  </Nav>
+                  <Nav.Link target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/kunstform.wissenschaft/"><div>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+
+                  </div></Nav.Link>
+                  <Nav.Link href=""><div>
+
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+
+                  </div></Nav.Link>
+
+                  <Nav.Link href=""><div>
+
+                    <i class="fa fa-youtube-square" aria-hidden="true"></i>
+
+                  </div></Nav.Link>
 
                 </Navbar.Collapse>
               </Navbar>

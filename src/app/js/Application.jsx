@@ -13,14 +13,14 @@ import api from './utils/api'
 import logo from "./logo.svg";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Home from "./components/home";
+import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Exhibition from "./components/exhibition/index.jsx";
 import Exhibit from "./components/exhibition/exhibit";
 import Blog from "./components/Blog/index";
 import Editor from "./components/Blog/Editor/Editor";
-import Post from "./components/Blog/Post/Post";
 import Contact from "./components/Contact";
+import Post from "./components/Blog/Post/Post";
 
 
 class Application extends React.Component {
@@ -69,13 +69,8 @@ class Application extends React.Component {
                         <Route exact path="/current-project/exponat1">
                             <Exhibit />
                         </Route>
-
                         <Route exact path="/blog">
-                            <Blog />
-                        </Route>
-
-                        <Route exact path="/blog/post/:id">
-                            <Post />
+                            <Blog user={this.state.user} />
                         </Route>
 
                         <Route exact path="/blog/new">
@@ -91,7 +86,9 @@ class Application extends React.Component {
                         </Route>
 
 
-
+                        <Route exact path="/blog/post/:id">
+                            <Post />
+                        </Route>
 
                         <Route
                             path="/admin"

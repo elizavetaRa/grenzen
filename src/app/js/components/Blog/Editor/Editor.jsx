@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {withRouter} from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
 import {
     Card, Button
 } from "react-bootstrap";
@@ -14,6 +14,7 @@ import api from "../../../utils/api";
 
 const Editor = withRouter((props) => {
     const [editorContent, setEditorContent] = useState('');
+    const [image, setImage] = useState('');
     const [post, setPost] = useState({
         title: '',
         content: '',
@@ -34,42 +35,45 @@ const Editor = withRouter((props) => {
             ).then(data => {
                 setPost(data.item);
             })
-            .catch(err => {
-                console.log(err)
-            })
+                .catch(err => {
+                    console.log(err)
+                })
         }
 
-        return () => {}
+        return () => { }
     }, [postId]);
 
     function handleChangeTitle(editorTitle) {
-        setPost({...post, title: editorTitle.target.value});
+        setPost({ ...post, title: editorTitle.target.value });
     }
 
     function handleChangePreview(editorPreview) {
-        setPost({...post, preview: editorPreview.target.value});
+        setPost({ ...post, preview: editorPreview.target.value });
     }
 
     function handleChangeContent(content) {
         setEditorContent(content);
     }
 
+
     function saveResults() {
-        const postToSend = {...post, content: editorContent, date: Date.now()};
+        const postToSend = { ...post, content: editorContent, date: Date.now() };
 
         const onSaveResults = (id) => {
             props.history.push(`/blog/post/${id}`);
         };
 
+        console.log("image file", image)
+
         if (postId) {
             api.post(
-                `${SERVER_NAME}/api/auth/edit-newsitem/${postId}`, postToSend
+                `${SERVER_NAME}/api/blog/edit-newsitem/${postId}`, postToSend, { image: image }
             ).then(() => onSaveResults(postId)).catch(err => {
                 console.log('Server responded with error!')
             })
         } else {
             api.post(
-                `${SERVER_NAME}/api/auth/newsitem`, postToSend
+                `${SERVER_NAME}/api/blog/newsitem`, postToSend, { image: image }
             ).then((data) => {
                 onSaveResults(data.id);
             }).catch(err => {
@@ -80,7 +84,7 @@ const Editor = withRouter((props) => {
 
     return (
         <div className="editor">
-            <div className="editor__header">{ postId ? 'Edit post' : 'New post' }</div>
+            <div className="editor__header">{postId ? 'Edit post' : 'New post'}</div>
             <div className="editor__wrapper">
                 <Card>
                     <Card.Body>
@@ -96,27 +100,34 @@ const Editor = withRouter((props) => {
                         <Card.Subtitle className="mb-2 text-muted">
                             <textarea className="editor__input editor-preview" onChange={handleChangePreview} type="text" value={post.preview}></textarea>
                         </Card.Subtitle>
-                        <Card.Subtitle className="mb-2 text-muted">{ moment(new Date()).format('DD.MM.YYYY') }</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">{moment(new Date()).format('DD.MM.YYYY')}</Card.Subtitle>
                         <div className="editor__container">
                             <SunEditor width="100%" placeholder="Please type here..."
-                                       setContents={ post.content }
-                                       setDefaultStyle="height: 300px;"
-                                       setOptions={{
-                                           buttonList: [
-                                               ['undo', 'redo', 'removeFormat'],
-                                               ['font', 'fontSize', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
-                                               ['align', 'indent', 'outdent', 'list'],
-                                               ['link', 'image', 'video']
-                                           ]
-                                       }}
-                                       onChange={ handleChangeContent }
+                                setContents={post.content}
+                                setDefaultStyle="height: 300px;"
+                                setOptions={{
+                                    buttonList: [
+                                        ['undo', 'redo', 'removeFormat'],
+                                        ['font', 'fontSize', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                                        ['align', 'indent', 'outdent', 'list'],
+                                        ['link', 'image', 'video']
+                                    ]
+                                }}
+                                onChange={handleChangeContent}
                             />
                         </div>
                         <div className="editor__btn-group">
-                            <label htmlFor="file-upload-image" className="btn btn-light editor__upload" value="upload">
-                                <input id="file-upload-image" type="file" className="editor__upload-image-input"/>
+                            {/*<label htmlFor="file-upload-image" className="btn btn-light editor__upload" value="upload">
+                                <input id="file-upload-image" type="file" className="editor__upload-image-input" />
                                     Add image
-                            </label>
+                            </label>*/}
+
+                            <input
+                                type="file"
+                                onChange={evt => setImage(evt.target.files[0])}
+                                className="input"
+                                placeholder="Bild hochladen"
+                            />
 
                             <div className="editor__upload">
                                 <Button variant="light">
@@ -127,9 +138,10 @@ const Editor = withRouter((props) => {
                     </Card.Body>
                 </Card>
             </div>
-            <Button className="editor__save-btn" variant="success" onClick={ saveResults }>
+            <Button className="editor__save-btn" variant="success" onClick={saveResults}>
                 Save
             </Button>
+
         </div>
     );
 });

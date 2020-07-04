@@ -17,7 +17,7 @@ const index = () => {
 
     useEffect(() => {
         api.get(
-            `${SERVER_NAME}/api/auth/newsitems`
+            `${SERVER_NAME}/api/blog/newsitems`
         ).then(data => {
             setPostsList(data);
         })

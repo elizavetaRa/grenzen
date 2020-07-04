@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const NewsItem = require("../../models/NewsItem")
 
 const authRoutes = require('./auth')
+const blogRoutes = require("./blog")
+
 const {
     userMiddleware,
     checkLoggedIn
@@ -27,6 +28,7 @@ router.get('/protected', checkLoggedIn, (req, res) => {
 
 
 router.use('/auth', authRoutes)
+router.use('/blog', blogRoutes)
 
 router.use((req, res) => {
     res.status(404).send({
