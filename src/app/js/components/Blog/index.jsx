@@ -37,7 +37,7 @@ const index = () => {
             <Container>
                 <Row>
                     <Col md={2} className="blog-container__aside">
-                        <Dropdown>
+                        <Dropdown className="blog-container__dropdown-filter">
                             <Dropdown.Toggle variant="dark" id="dropdown-basic">
                                 Filter
                            </Dropdown.Toggle>
@@ -48,7 +48,7 @@ const index = () => {
                             </Dropdown.Menu>
                         </Dropdown>
                         <div className="blog-container__empty"></div>
-                        {localStorage.getItem('identity') && <Button variant="dark">
+                        {localStorage.getItem('identity') && <Button variant="dark" className="blog-container__new-post-button">
                             <Link className="link nav-link" to="/blog/new">
                                 New post
                            </Link>
