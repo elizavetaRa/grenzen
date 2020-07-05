@@ -31,7 +31,7 @@ const Editor = withRouter((props) => {
 
         if (postId) {
             api.get(
-                `${SERVER_NAME}/api/auth/newsitem/${postId}`
+                `${SERVER_NAME}/api/blog/newsitem/${postId}`
             ).then(data => {
                 setPost(data.item);
             })
