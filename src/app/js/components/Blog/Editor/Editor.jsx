@@ -20,7 +20,7 @@ const Editor = withRouter((props) => {
         content: '',
         preview: '',
         date: 0,
-        image: 'https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=fda28812dc06498b55f2e615455183c3',
+        //image: 'https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=fda28812dc06498b55f2e615455183c3',
         youtube: '',
         hashtags: []
     });
@@ -35,9 +35,9 @@ const Editor = withRouter((props) => {
             ).then(data => {
                 setPost(data.item);
             })
-                .catch(err => {
-                    console.log(err)
-                })
+            .catch(err => {
+                console.log(err)
+            })
         }
 
         return () => { }
