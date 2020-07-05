@@ -24,6 +24,7 @@ const index = () => {
             .catch(err => {
                 console.log(err)
             })
+
     }, []);
 
     function handlePageClick(event) {

@@ -102,6 +102,51 @@ router.get('/newsitems/:page?', (req, res) => {
     })
 })
 
+router.get("/filter/newsitems", (req, res) => {
+
+    let hashtags = ["test", "test2"]
+    const chunks = []
+
+    console.log("hashtags", hashtags)
+
+    const items = NewsItem.find().sort({
+        _id: -1
+    }).then(items => {
+
+        const result = []
+        hashtags.forEach(hashtag => {
+            let filtered = items.filter(item => item.hashtags.includes(hashtag))
+
+            filtered.forEach(el => {
+                if (result.indexOf(el) === -1) result.push(el);
+            })
+
+            let i = 0;
+            let n = result.length;
+
+            while (i < n) {
+                chunks.push(result.slice(i, i += 5));
+            }
+
+            res.send(chunks)
+
+        })
+        //
+    }).catch(err => res.send(err))
+})
+
+router.delete("/newsitem/:id", checkLoggedIn, (req, res) => {
+    const id = req.params.id
+
+    NewsItem.deleteOne({
+        _id: id
+    }).then(res => {
+        res.status(200).json({
+            message: "Post deleted"
+        });
+    })
+})
+
 router.post('/edit-newsitem/:id', checkLoggedIn, (req, res) => {
     const id = req.params.id
     const {
