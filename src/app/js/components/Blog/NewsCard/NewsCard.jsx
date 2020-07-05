@@ -52,7 +52,7 @@ const NewsCard = withRouter(({ history, card }) => {
                     </div>
                     }
                 </div>
-                <Card.Subtitle className="mb-2 text-muted">{cardDate}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted news-card__date">{cardDate}</Card.Subtitle>
                 <Card.Text>
                     <div className='news-card__preview'>{card.preview}</div>
                 </Card.Text>
