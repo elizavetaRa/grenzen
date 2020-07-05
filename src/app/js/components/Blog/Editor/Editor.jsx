@@ -21,7 +21,7 @@ const Editor = withRouter((props) => {
         preview: '',
         date: 0,
         image: 'https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=fda28812dc06498b55f2e615455183c3',
-        youtube: 'https://www.youtube.com/watch?v=WEkSYw3o5is',
+        youtube: '',
         hashtags: []
     });
     const postId = props.match.params.id ? props.match.params.id : null;
@@ -45,6 +45,10 @@ const Editor = withRouter((props) => {
 
     function handleChangeTitle(editorTitle) {
         setPost({ ...post, title: editorTitle.target.value });
+    }
+
+    function handleChangeYoutubeLink(youtubeLink) {
+        setPost({ ...post, youtube: youtubeLink.target.value });
     }
 
     function handleChangePreview(editorPreview) {
@@ -129,11 +133,11 @@ const Editor = withRouter((props) => {
                                 placeholder="Bild hochladen"
                             />
 
-                            <div className="editor__upload">
-                                <Button variant="light">
-                                    Add youtube link
-                                </Button>
-                            </div>
+                            <input type="text"
+                                   className="form-control editor__add-youtube"
+                                   placeholder="Add youtube link"
+                                   onChange={handleChangeYoutubeLink}
+                                   value={post.youtube}></input>
                         </div>
                     </Card.Body>
                 </Card>

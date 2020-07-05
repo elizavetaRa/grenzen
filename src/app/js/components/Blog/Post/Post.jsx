@@ -45,9 +45,12 @@ const Post = (props) => {
             <div className="post__container container">
                 <h2 className="post__title">{post.title}</h2>
                 <div className="post__sub-title">{moment(new Date()).format('DD.MM.YYYY')}</div>
-                {post.image && <img border="0" alt="image" src={post.image} width="200"></img>}
+                {post.image && <img border="0" alt="image" src={post.image} width="200"></img> }
+                { post.youtube && <div className="post__youtube">
+                    <iframe width="560" height="315" src={post.youtube} frameBorder="0"
+                            allowFullScreen></iframe>
+                </div>}
                 <iframe className="post__content container" srcDoc={post.content}></iframe>
-
             </div>
         </div>
     );
