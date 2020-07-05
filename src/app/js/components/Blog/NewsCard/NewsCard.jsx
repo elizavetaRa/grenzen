@@ -6,6 +6,8 @@ import {
 import moment from 'moment';
 
 import './NewsCard.scss';
+import { SERVER_NAME } from "../../../constants";
+import api from '../../../utils/api';
 
 const NewsCard = withRouter(({ history, card }) => {
     function formatDate(date) {
@@ -23,6 +25,16 @@ const NewsCard = withRouter(({ history, card }) => {
         history.push(`/blog/edit/${card._id}`);
     }
 
+    function onDeleteClick(event) {
+        event.stopPropagation();
+        api.get(
+            `${SERVER_NAME}/api/blog/newsitem/${card._id}`
+        ).then(data => {})
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     return (
         <Card className="news-card" onClick={ onCardClick }>
             {/*<Card.Img variant="top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" />*/}
@@ -30,9 +42,14 @@ const NewsCard = withRouter(({ history, card }) => {
                 <div className="news-card__header">
                     <Card.Title>{card.title}</Card.Title>
                     {localStorage.getItem('identity') &&
-                        <Button variant="success" onClick={ (event) => onEditClick(event) }>
+                    <div>
+                        <Button variant="dark" className="news-card__edit" onClick={ (event) => onEditClick(event) }>
                             Edit
                         </Button>
+                        <Button variant="light" onClick={ (event) => onDeleteClick(event) }>
+                            Delete
+                        </Button>
+                    </div>
                     }
                 </div>
                 <Card.Subtitle className="mb-2 text-muted">{cardDate}</Card.Subtitle>
