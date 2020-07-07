@@ -13,7 +13,7 @@ class footer extends Component {
 
 
           <div className="container">
-            <h4 className="text-center">Partners</h4>
+            <h4 className="text-center text-white">Gefördert von:</h4>
             <br></br>
 
             <div className="row">
@@ -49,7 +49,12 @@ class footer extends Component {
 
             </div>
 
-            <div className="footer-copyright text-center py-3">© 2020 Copyright:</div>
+            <br></br>
+
+            <div className="row">
+              <div className="col text-center text-white">Datenschutz Impressum Disclaimer</div>
+            </div>
+            <br></br><br></br>
           </div>
         </footer>
       </div>

@@ -22,7 +22,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
+      <div className="transparent sticky-top">
         <div>
           <div className="row">
             <div className="col-md-12">
@@ -31,7 +31,7 @@ class Header extends Component {
                 variant="dark"
                 expand="lg"
                 sticky="top"
-                className=".transparent"
+                className="transparent sticky-top"
               >
 
 
@@ -71,13 +71,13 @@ class Header extends Component {
                     <i class="fa fa-instagram" aria-hidden="true"></i>
 
                   </div></Nav.Link>
-                  <Nav.Link href=""><div>
+                  <Nav.Link href="https://www.facebook.com/Kunstform.Wissenschaft/"><div>
 
                     <i class="fa fa-facebook-square" aria-hidden="true"></i>
 
                   </div></Nav.Link>
 
-                  <Nav.Link href=""><div>
+                  <Nav.Link href="https://www.youtube.com/channel/UChlwdWKm0RSckGMp7Dpjl3w?view_as=subscriber"><div>
 
                     <i class="fa fa-youtube-square" aria-hidden="true"></i>
 
