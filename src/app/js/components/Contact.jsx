@@ -49,25 +49,26 @@ const Contact = props => {
 
     return (
 
-        <div className="container">
+        <div className="bg">
+            <div className="container" style={{ width: '25rem' }}>
 
 
-            <Form onSubmit={handleSubmit} method="POST">
-                <Form.Group controlId="exampleForm.ControlInput1">
-                    <Form.Label>Email*</Form.Label>
-                    <Form.Control value={email} onChange={onEmailChange} type="email" placeholder="name@example.com" />
-                </Form.Group>
+                <Form onSubmit={handleSubmit} method="POST">
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Label>Email*</Form.Label>
+                        <Form.Control value={email} onChange={onEmailChange} type="email" placeholder="name@example.com" />
+                    </Form.Group>
 
-                <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Nachricht*</Form.Label>
-                    <Form.Control value={message} onChange={onMessageChange} as="textarea" rows="3" />
-                </Form.Group>
-                {error && (<p>{error}</p>)}
-                <Button variant="primary" type="submit">
-                    Submit
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Nachricht*</Form.Label>
+                        <Form.Control value={message} onChange={onMessageChange} as="textarea" rows="3" />
+                    </Form.Group>
+                    {error && (<p>{error}</p>)}
+                    <Button variant="primary" type="submit">
+                        Submit
 </Button>
-            </Form>
-        </div>
+                </Form>
+            </div></div>
     );
 };
 

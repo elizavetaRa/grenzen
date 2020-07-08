@@ -32,7 +32,7 @@ const Home = props => {
           <h5 className="text-white">Wir organisieren digitale und analoge Aktionen und Ausstellungen und möchten auf diese Weise den Dialog innerhalb der Gesellschaft anregen. Die Symbiose von Kunst und Wissenschaft steht im Mittelpunkt unserer Arbeit, um einen niedrigschwelligen Zugang zu schaffen und den öffentlichen Raum für eine gesamtgesellschaftliche Auseinandersetzung zu öffnen.</h5>
         </div>
         <div className="col-sm text-center">
-          <h4 className="text-white">Aktuelles</h4>
+          <h5 className="text-white">Aktuelles</h5>
 
           {
             postsList.length ? postsList.slice(0, 3).map(card => (

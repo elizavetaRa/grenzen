@@ -20,6 +20,17 @@ body {
   }
 }
 
+.container-width {
+  padding-left: 5vw;
+  padding-right: 5vw;
+
+  @media (max-width: 980px) {
+    padding-left: 3vw;
+    padding-right: 3vw;
+
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -42,7 +53,7 @@ code {
 
 .bg {
   /* The image used */
-  background-image: url("./images/background.jpg");
+  background-image: url("./images/background-dark.jpg");
 
   /* Full height */
 

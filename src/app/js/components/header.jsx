@@ -22,10 +22,10 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="transparent sticky-top">
+      <div className="transparent sticky-top bg-dark" >
         <div>
-          <div className="row">
-            <div className="col-md-12">
+          <div className="row ">
+            <div className="col-md-12"><div className="container-width">
               <Navbar
                 bg="dark"
                 variant="dark"
@@ -33,6 +33,8 @@ class Header extends Component {
                 sticky="top"
                 className="transparent sticky-top"
               >
+
+
 
 
                 <Navbar.Brand href="/">Kunstform Wissenschaft</Navbar.Brand>
@@ -84,7 +86,7 @@ class Header extends Component {
                   </div></Nav.Link>
 
                 </Navbar.Collapse>
-              </Navbar>
+              </Navbar></div>
             </div>
           </div>
         </div>

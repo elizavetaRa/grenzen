@@ -33,6 +33,8 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
         })
     } else {
 
+        console.log("content", content)
+
         const newsItem = new NewsItem({
             title,
             content,
@@ -59,7 +61,10 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
                 res.send({
                     id
                 })
-        }).catch(err => res.send(err))
+        }).catch(err => {
+            console.log(err)
+            res.send(err)
+        })
     }
 
 

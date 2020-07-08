@@ -12,7 +12,7 @@ class footer extends Component {
         <footer className="page-footer bg-dark font-small mdb-color lighten-3 pt-4">
 
 
-          <div className="container">
+          <div className="container-width">
             <h4 className="text-center text-white">Gefördert von:</h4>
             <br></br>
 
