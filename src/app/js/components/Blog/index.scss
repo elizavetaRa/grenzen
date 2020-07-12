@@ -26,8 +26,8 @@
       width: 22px;
       height: 22px;
       border-radius: 3px;
-      background-color: #2785ff;
-      color: #fff;
+      background-color: #fff;
+      color: #000;
 
       a {
         width: inherit;
@@ -40,13 +40,15 @@
       }
 
       &:hover {
-        background-color: #175d81;
+        color: #fff;
+        background-color: #656565;
         cursor: pointer;
       }
     }
 
     .pagination-active-btn {
-      background-color: #175d81;
+      color: #fff;
+      background-color: #656565;
       cursor: pointer;
     }
 
@@ -58,10 +60,10 @@
       height: 22px;
       list-style: none;
       font-weight: 600;
-      color: #2785ff;
+      color: #fff;
 
       &:hover {
-        color: #175d81;
+        color: #656565;
         cursor: pointer;
       }
 
@@ -74,7 +76,7 @@
 
     .pagination-break {
       list-style: none;
-      color:  #2785ff;
+      color:  #fff;
 
       a {
         width: inherit;
