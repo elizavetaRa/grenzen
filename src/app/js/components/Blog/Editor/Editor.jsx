@@ -37,7 +37,7 @@ const Editor = withRouter((props) => {
                 `${SERVER_NAME}/api/blog/newsitem/${postId}`
             ).then(data => {
                 setPost(data.item);
-                hashTags.current = data.item.hashtags.length ? data.item.hashtags : hashTags.current;
+                if (data.item.hashtags.length) setHashTags(data.item.hashtags.filter(tag => !!tag));
             })
             .catch(err => {
                 console.log(err)
@@ -68,18 +68,25 @@ const Editor = withRouter((props) => {
     }
 
     function addHashTag() {
-        setHashTags([...hashTags, currentHashTag]);
+        if (!hashTags.includes(currentHashTag)) setHashTags([...hashTags, currentHashTag]);
         setCurrentHashTag('');
     }
 
+    function onAddKeyDown(event) {
+        if (event.keyCode === 13) addHashTag();
+    }
+
+    function deleteHashTag(tagToDelete) {
+        const updatedHashTagList = hashTags.filter(tag => tag !== tagToDelete);
+        setHashTags(updatedHashTagList);
+    }
+
     function saveResults() {
-        const postToSend = { ...post, content: editorContent, date: Date.now() };
+        const postToSend = { ...post, content: editorContent, date: Date.now(), hashtags: hashTags };
 
         const onSaveResults = (id) => {
             props.history.push(`/blog/post/${id}`);
         };
-
-        console.log("image file", image)
 
         if (postId) {
             api.post(
@@ -100,7 +107,6 @@ const Editor = withRouter((props) => {
 
     return (
         <div className="editor">
-            {console.log(hashTags)}
             <div className="editor__header">{postId ? 'Edit post' : 'New post'}</div>
             <div className="editor__wrapper">
                 <Card>
@@ -157,17 +163,21 @@ const Editor = withRouter((props) => {
                             </Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">
                                 <div className="editor__input-group">
-                                    <input className="editor__input editor-hash-tags" onChange={handleHashTag} type="text" value={currentHashTag}></input>
-                                    <Button variant="dark" onClick={addHashTag}>Add</Button>
+                                    <input className="editor__input editor-hash-tags"
+                                           onChange={handleHashTag}
+                                           onKeyDown={onAddKeyDown}
+                                           type="text"
+                                           value={currentHashTag}></input>
+                                    <Button variant="dark" className="add-hashtag-btn" onClick={addHashTag}>Add</Button>
                                 </div>
                             </Card.Subtitle>
-                            { post.hashtags.length &&
+                            { !!hashTags.length &&
                                 <div className="editor__hash-tags-container">
-                                    {post.hashtags.map(tag =>
+                                    {hashTags.map(tag =>
                                         (
-                                            <div className="editor__hash-tag">
+                                            <div className="editor__hash-tag" key={tag}>
                                                 {tag}
-                                                <div className="hash-tag-delete">&#215;</div>
+                                                <div className="hash-tag-delete" onClick={() => deleteHashTag(tag)}>&#215;</div>
                                             </div>
                                         ))}
                                 </div>

@@ -46,10 +46,27 @@
 
   .editor-hash-tags {
     margin-right: 10px;
+    width: 60%;
+
+    @media screen and (max-width: 960px) {
+      & {
+        min-width: 100%;
+      }
+    }
   }
 
   &__input-group {
     display: flex;
+    flex-wrap: wrap;
+
+    .add-hashtag-btn {
+      @media screen and (max-width: 960px) {
+        & {
+          min-width: 100%;
+          margin: 10px 0;
+        }
+      }
+    }
   }
 
   .editor-preview {
@@ -92,15 +109,9 @@
         min-width: 100%;
       }
     }
-
-    @media screen and (max-width: 960px) {
-      & {
-        min-width: 100%;
-      }
-    }
   }
 
-  &__hash-tag-container {
+  &__hash-tags-container {
     display: flex;
     flex-wrap: wrap;
   }
@@ -108,8 +119,24 @@
   &__hash-tag {
     display: flex;
     align-items: center;
-    padding: 4px;
-    border: 1px solid #000;
-    border-radius: 4px;
+    height: 27px;
+    padding-left: 4px;
+    margin: 2px 2px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
   }
+
+  .hash-tag-delete {
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    height: inherit;
+    border-radius: 0 10px 10px 0;
+
+    &:hover {
+      background-color: #d7d7d7;
+      cursor: pointer;
+    }
+  }
+
 }
