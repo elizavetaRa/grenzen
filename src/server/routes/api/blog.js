@@ -26,7 +26,7 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
     } = req.body
 
     console.log(
-        content.length)
+        req.body)
 
 
     if (!title || !content || !preview || !date) {
@@ -37,6 +37,8 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
     } else {
 
         let hashtag = hashtags ? hashtags : []
+
+        console.log("hashtag", typeof hashtags)
 
         const newsItem = new NewsItem({
             title: title,
@@ -155,8 +157,10 @@ router.get("/delete/newsitem/:id", checkLoggedIn, (req, res) => {
         });
     }).catch(err => {
         console.log(err)
-        res.error(err)
+        res.send(err)
     })
+
+
 })
 
 router.post('/edit-newsitem/:id', checkLoggedIn, (req, res) => {
