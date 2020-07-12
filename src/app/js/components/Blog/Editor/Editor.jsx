@@ -40,9 +40,9 @@ const Editor = withRouter((props) => {
                 if (data.item.hashtags.length) setHashTags(data.item.hashtags.filter(tag => !!tag));
                 if (data.item.image) setImageLink(data.item.image);
             })
-            .catch(err => {
-                console.log(err)
-            })
+                .catch(err => {
+                    console.log(err)
+                })
         }
 
         return () => { }
@@ -96,6 +96,7 @@ const Editor = withRouter((props) => {
                 console.log('Server responded with error!')
             })
         } else {
+            console.log("postToSend", postToSend)
             api.post(
                 `${SERVER_NAME}/api/blog/newsitem`, postToSend, { image: image }
             ).then((data) => {
@@ -154,10 +155,10 @@ const Editor = withRouter((props) => {
                             />
 
                             <input type="text"
-                                   className="form-control editor__add-youtube"
-                                   placeholder="Add youtube link"
-                                   onChange={handleChangeYoutubeLink}
-                                   value={post.youtube}></input>
+                                className="form-control editor__add-youtube"
+                                placeholder="Add youtube link"
+                                onChange={handleChangeYoutubeLink}
+                                value={post.youtube}></input>
 
                             <Card.Title>
                                 <div className="editor__label">Add hash tags</div>
@@ -165,14 +166,14 @@ const Editor = withRouter((props) => {
                             <Card.Subtitle className="mb-2 text-muted">
                                 <div className="editor__input-group">
                                     <input className="editor__input editor-hash-tags"
-                                           onChange={handleHashTag}
-                                           onKeyDown={onAddKeyDown}
-                                           type="text"
-                                           value={currentHashTag}></input>
+                                        onChange={handleHashTag}
+                                        onKeyDown={onAddKeyDown}
+                                        type="text"
+                                        value={currentHashTag}></input>
                                     <Button variant="dark" className="add-hashtag-btn" onClick={addHashTag}>Add</Button>
                                 </div>
                             </Card.Subtitle>
-                            { !!hashTags.length &&
+                            {!!hashTags.length &&
                                 <div className="editor__hash-tags-container">
                                     {hashTags.map(tag =>
                                         (
