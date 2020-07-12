@@ -33,7 +33,7 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
         })
     } else {
 
-        console.log("content", content)
+        let hashtag = hashtags ? hashtags : []
 
         const newsItem = new NewsItem({
             title,
@@ -41,7 +41,7 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
             preview,
             date,
             youtube,
-            hashtags
+            hashtags: hashtag
         }).save().then(newsItem => {
             let id = newsItem._id;
             if (req.files && req.files.image) {
