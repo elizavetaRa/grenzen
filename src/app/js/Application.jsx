@@ -22,6 +22,8 @@ import Editor from "./components/Blog/Editor/Editor";
 import Contact from "./components/Contact";
 import Post from "./components/Blog/Post/Post";
 import About from "./components/Home/About";
+import Impressum from "./components/Home/Impressum"
+import Datenschutz from "./components/Home/Dateschutz"
 
 
 class Application extends React.Component {
@@ -88,6 +90,14 @@ class Application extends React.Component {
 
                         <Route exact path="/über">
                             <About />
+                        </Route>
+
+                        <Route exact path="/impressum">
+                            <Impressum />
+                        </Route>
+
+                        <Route exact path="/datenschutz">
+                            <Datenschutz />
                         </Route>
 
 
