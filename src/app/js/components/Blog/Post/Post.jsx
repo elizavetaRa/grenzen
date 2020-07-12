@@ -29,7 +29,6 @@ const Post = (props) => {
             api.get(
                 `${SERVER_NAME}/api/blog/newsitem/${postId}`
             ).then(data => {
-                console.log(data.item)
                 setPost(data.item);
             })
                 .catch(err => {
@@ -45,12 +44,12 @@ const Post = (props) => {
             <div className="post__container container">
                 <h2 className="post__title">{post.title}</h2>
                 <div className="post__sub-title">{moment(new Date()).format('DD.MM.YYYY')}</div>
-                {post.image && <img border="0" alt="image" src={post.image} width="200"></img> }
+                <iframe className="post__content container" srcDoc={post.content}></iframe>
+                {post.image && <img border="0" alt="image" src={post.image} width="200" className="post__image"></img> }
                 { post.youtube && <div className="post__youtube">
                     <iframe width="560" height="315" src={post.youtube} frameBorder="0"
-                            allowFullScreen></iframe>
+                            allowFullScreen className="post__video"></iframe>
                 </div>}
-                <iframe className="post__content container" srcDoc={post.content}></iframe>
             </div>
         </div>
     );
