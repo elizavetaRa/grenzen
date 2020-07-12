@@ -25,6 +25,9 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
         hashtags
     } = req.body
 
+    console.log(
+        content.length)
+
 
     if (!title || !content || !preview || !date) {
         console.log("error");
@@ -36,11 +39,11 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
         let hashtag = hashtags ? hashtags : []
 
         const newsItem = new NewsItem({
-            title,
-            content,
-            preview,
-            date,
-            youtube,
+            title: title,
+            content: content,
+            preview: preview,
+            date: date,
+            youtube: youtube,
             hashtags: hashtag
         }).save().then(newsItem => {
             let id = newsItem._id;

@@ -42,8 +42,5 @@ const newsItemSchema = new Schema({
     }]
 })
 
-newsItemSchema.index({
-    content: 'text'
-})
 
 module.exports = mongoose.model('NewsItem', newsItemSchema)
