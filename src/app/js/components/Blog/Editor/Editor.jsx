@@ -24,6 +24,9 @@ const Editor = withRouter((props) => {
         youtube: '',
         hashtags: []
     });
+
+    const [currentHashTag, setCurrentHashTag] = useState('');
+    const [hashTags, setHashTags] = useState([]);
     const postId = props.match.params.id ? props.match.params.id : null;
 
     useEffect(() => {
@@ -34,6 +37,7 @@ const Editor = withRouter((props) => {
                 `${SERVER_NAME}/api/blog/newsitem/${postId}`
             ).then(data => {
                 setPost(data.item);
+                hashTags.current = data.item.hashtags.length ? data.item.hashtags : hashTags.current;
             })
             .catch(err => {
                 console.log(err)
@@ -43,22 +47,30 @@ const Editor = withRouter((props) => {
         return () => { }
     }, [postId]);
 
-    function handleChangeTitle(editorTitle) {
-        setPost({ ...post, title: editorTitle.target.value });
+    function handleChangeTitle(event) {
+        setPost({ ...post, title: event.target.value });
     }
 
-    function handleChangeYoutubeLink(youtubeLink) {
-        setPost({ ...post, youtube: youtubeLink.target.value });
+    function handleChangeYoutubeLink(event) {
+        setPost({ ...post, youtube: event.target.value });
     }
 
-    function handleChangePreview(editorPreview) {
-        setPost({ ...post, preview: editorPreview.target.value });
+    function handleChangePreview(event) {
+        setPost({ ...post, preview: event.target.value });
     }
 
     function handleChangeContent(content) {
         setEditorContent(content);
     }
 
+    function handleHashTag(event) {
+        setCurrentHashTag(event.target.value.replace(/[\s]/, ''));
+    }
+
+    function addHashTag() {
+        setHashTags([...hashTags, currentHashTag]);
+        setCurrentHashTag('');
+    }
 
     function saveResults() {
         const postToSend = { ...post, content: editorContent, date: Date.now() };
@@ -88,6 +100,7 @@ const Editor = withRouter((props) => {
 
     return (
         <div className="editor">
+            {console.log(hashTags)}
             <div className="editor__header">{postId ? 'Edit post' : 'New post'}</div>
             <div className="editor__wrapper">
                 <Card>
@@ -138,6 +151,27 @@ const Editor = withRouter((props) => {
                                    placeholder="Add youtube link"
                                    onChange={handleChangeYoutubeLink}
                                    value={post.youtube}></input>
+
+                            <Card.Title>
+                                <div className="editor__label">Add hash tags</div>
+                            </Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">
+                                <div className="editor__input-group">
+                                    <input className="editor__input editor-hash-tags" onChange={handleHashTag} type="text" value={currentHashTag}></input>
+                                    <Button variant="dark" onClick={addHashTag}>Add</Button>
+                                </div>
+                            </Card.Subtitle>
+                            { post.hashtags.length &&
+                                <div className="editor__hash-tags-container">
+                                    {post.hashtags.map(tag =>
+                                        (
+                                            <div className="editor__hash-tag">
+                                                {tag}
+                                                <div className="hash-tag-delete">&#215;</div>
+                                            </div>
+                                        ))}
+                                </div>
+                            }
                         </div>
                     </Card.Body>
                 </Card>
