@@ -21,6 +21,7 @@ import Blog from "./components/Blog/index";
 import Editor from "./components/Blog/Editor/Editor";
 import Contact from "./components/Contact";
 import Post from "./components/Blog/Post/Post";
+import About from "./components/Home/About";
 
 
 class Application extends React.Component {
@@ -83,6 +84,10 @@ class Application extends React.Component {
 
                         <Route exact path="/kontakt">
                             <Contact />
+                        </Route>
+
+                        <Route exact path="/über">
+                            <About />
                         </Route>
 
 

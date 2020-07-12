@@ -22,17 +22,19 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
+      <div className="transparent sticky-top bg-dark" >
         <div>
-          <div className="row">
-            <div className="col-md-12">
+          <div className="row ">
+            <div className="col-md-12"><div className="container-width">
               <Navbar
                 bg="dark"
                 variant="dark"
                 expand="lg"
                 sticky="top"
-                className=".transparent"
+                className="transparent sticky-top"
               >
+
+
 
 
                 <Navbar.Brand href="/">Kunstform Wissenschaft</Navbar.Brand>
@@ -71,20 +73,20 @@ class Header extends Component {
                     <i class="fa fa-instagram" aria-hidden="true"></i>
 
                   </div></Nav.Link>
-                  <Nav.Link href=""><div>
+                  <Nav.Link href="https://www.facebook.com/Kunstform.Wissenschaft/"><div>
 
                     <i class="fa fa-facebook-square" aria-hidden="true"></i>
 
                   </div></Nav.Link>
 
-                  <Nav.Link href=""><div>
+                  <Nav.Link href="https://www.youtube.com/channel/UChlwdWKm0RSckGMp7Dpjl3w?view_as=subscriber"><div>
 
                     <i class="fa fa-youtube-square" aria-hidden="true"></i>
 
                   </div></Nav.Link>
 
                 </Navbar.Collapse>
-              </Navbar>
+              </Navbar></div>
             </div>
           </div>
         </div>

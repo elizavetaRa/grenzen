@@ -12,8 +12,8 @@ class footer extends Component {
         <footer className="page-footer bg-dark font-small mdb-color lighten-3 pt-4">
 
 
-          <div className="container">
-            <h4 className="text-center">Partners</h4>
+          <div className="container-width">
+            <h4 className="text-center text-white">Gefördert von:</h4>
             <br></br>
 
             <div className="row">
@@ -49,7 +49,12 @@ class footer extends Component {
 
             </div>
 
-            <div className="footer-copyright text-center py-3">© 2020 Copyright:</div>
+            <br></br>
+
+            <div className="row">
+              <div className="col text-center text-white">Datenschutz Impressum Disclaimer</div>
+            </div>
+            <br></br><br></br>
           </div>
         </footer>
       </div>

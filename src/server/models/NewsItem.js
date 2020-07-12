@@ -11,6 +11,7 @@ const newsItemSchema = new Schema({
         type: String,
         required: true,
         unique: false,
+        text: true,
     },
     preview: {
         type: String,
@@ -39,6 +40,10 @@ const newsItemSchema = new Schema({
         required: false,
         unique: false,
     }]
+})
+
+newsItemSchema.index({
+    content: 'text'
 })
 
 module.exports = mongoose.model('NewsItem', newsItemSchema)
