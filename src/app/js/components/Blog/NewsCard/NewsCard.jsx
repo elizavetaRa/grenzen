@@ -9,7 +9,7 @@ import './NewsCard.scss';
 import { SERVER_NAME } from "../../../constants";
 import api from '../../../utils/api';
 
-const NewsCard = withRouter(({ history, card }) => {
+const NewsCard = withRouter(({ history, card, onDelete }) => {
     function formatDate(date) {
         return moment(new Date(date)).format('DD.MM.YYYY');
     };
@@ -27,13 +27,7 @@ const NewsCard = withRouter(({ history, card }) => {
 
     function onDeleteClick(event) {
         event.stopPropagation();
-        api.get(
-            `${SERVER_NAME}/api/blog/delete/newsitem/${card._id}`
-        ).then(data => { console.log(data) })
-            .catch(err => {
-                console.log(err)
-            })
-
+        onDelete(card._id);
     }
 
     return (

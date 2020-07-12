@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import {
-    Container, Row, Col, Dropdown, Button, ButtonGroup
+    Container, Row, Col, Dropdown, Button, Modal
 } from "react-bootstrap";
 import ReactPaginate from 'react-paginate';
 
@@ -14,9 +14,15 @@ import './index.scss';
 const index = () => {
     const [postsList, setPostsList] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
+    const [isModalShown, setIsModalShown] = useState(false);
+    const [postIdToDelete, setPostIdToDelete] = useState(null);
 
     useEffect(() => {
-        api.get(
+        getPostsList();
+    }, []);
+
+    function getPostsList() {
+        return api.get(
             `${SERVER_NAME}/api/blog/newsitems`
         ).then(data => {
             setPostsList(data);
@@ -24,12 +30,38 @@ const index = () => {
         .catch(err => {
             console.log(err)
         })
-
-    }, []);
+    }
 
     function handlePageClick(event) {
         window.scrollTo(0, 0);
         setPageNumber(event.selected);
+    }
+
+    function showModal(id) {
+        setPostIdToDelete(id);
+        setIsModalShown(true);
+    }
+
+    function hideModal() {
+        setPostIdToDelete(null);
+        setIsModalShown(false);
+    }
+
+    function onDeletePost() {
+        api.get(
+            `${SERVER_NAME}/api/blog/delete/newsitem/${postIdToDelete}`
+        ).then(() => {
+            setPostIdToDelete(null);
+            getPostsList().then(hideModal);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    function onCancelPostDelete() {
+        setPostIdToDelete(null);
+        setIsModalShown(false);
     }
 
     return (
@@ -59,7 +91,7 @@ const index = () => {
                             {
                                 postsList.length ? postsList[pageNumber].map(card => (
                                     <div className="blog-container__news-card">
-                                        <NewsCard key={card._id} card={card}></NewsCard>
+                                        <NewsCard key={card._id} card={card} onDelete={showModal}></NewsCard>
                                     </div>
                                 )) : null
                             }
@@ -82,6 +114,24 @@ const index = () => {
                     </Row>
                 </Container>
             </div>
+            <Modal className="editor__modal"
+                          show={isModalShown}
+                          onHide={hideModal}
+                          backdrop="static"
+                          keyboard={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Entfernen</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <p>Der Post wird aus der Datenbank entfernt</p>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="light" onClick={onCancelPostDelete}>Nein</Button>
+                    <Button variant="dark" onClick={onDeletePost}>Ja</Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

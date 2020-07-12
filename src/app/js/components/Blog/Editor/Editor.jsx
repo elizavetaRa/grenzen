@@ -15,12 +15,12 @@ import api from "../../../utils/api";
 const Editor = withRouter((props) => {
     const [editorContent, setEditorContent] = useState('');
     const [image, setImage] = useState('');
+    const [imageLink, setImageLink] = useState('');
     const [post, setPost] = useState({
         title: '',
         content: '',
         preview: '',
         date: 0,
-        //image: 'https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=fda28812dc06498b55f2e615455183c3',
         youtube: '',
         hashtags: []
     });
@@ -38,6 +38,7 @@ const Editor = withRouter((props) => {
             ).then(data => {
                 setPost(data.item);
                 if (data.item.hashtags.length) setHashTags(data.item.hashtags.filter(tag => !!tag));
+                if (data.item.image) setImageLink(data.item.image);
             })
             .catch(err => {
                 console.log(err)
@@ -189,7 +190,6 @@ const Editor = withRouter((props) => {
             <Button className="editor__save-btn" variant="success" onClick={saveResults}>
                 Save
             </Button>
-
         </div>
     );
 });
