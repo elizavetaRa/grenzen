@@ -31,6 +31,12 @@
   &__content {
     font-family: sans-serif;
     border: none;
+
+    figure img {
+      display: block;
+      max-width: 100% !important;
+      height: auto !important;
+    }
   }
 
   &__youtube {
