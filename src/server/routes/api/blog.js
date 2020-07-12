@@ -140,15 +140,19 @@ router.get("/filter/newsitems", (req, res) => {
     }).catch(err => res.send(err))
 })
 
-router.delete("/newsitem/:id", checkLoggedIn, (req, res) => {
+router.get("/delete/newsitem/:id", checkLoggedIn, (req, res) => {
     const id = req.params.id
 
     NewsItem.deleteOne({
         _id: id
     }).then(res => {
-        res.status(200).json({
+        console.log("deleted", id)
+        res.send({
             message: "Post deleted"
         });
+    }).catch(err => {
+        console.log(err)
+        res.error(err)
     })
 })
 

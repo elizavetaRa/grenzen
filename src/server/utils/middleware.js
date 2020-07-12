@@ -3,21 +3,24 @@ const config = require('../config')
 
 const userMiddleware = (req, res, next) => {
     const authHeader = req.get('Authorization')
+    console.log("search header", req.params)
 
     if (!authHeader) return next()
     const token = authHeader.split('Bearer ').join('')
     try {
         const decoded = jwt.verify(token, config.SECRET_JWT_PASSPHRASE)
         req.user = decoded
-    } catch (err) {
-    } finally {
+    } catch (err) {} finally {
         next()
     }
 }
 
 const checkLoggedIn = (req, res, next) => {
+    console.log("search user", req.user)
     if (req.user) return next()
-    return res.status(403).send({ error: 'please sign in' })
+    return res.status(403).send({
+        error: 'please sign in'
+    })
 }
 
 module.exports = {
