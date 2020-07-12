@@ -33,7 +33,7 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
         })
     } else {
 
-        console.log("content", content)
+        let hashtag = hashtags ? hashtags : []
 
         const newsItem = new NewsItem({
             title,
@@ -41,7 +41,7 @@ router.post('/newsitem', checkLoggedIn, (req, res) => {
             preview,
             date,
             youtube,
-            hashtags
+            hashtags: hashtag
         }).save().then(newsItem => {
             let id = newsItem._id;
             if (req.files && req.files.image) {
@@ -140,15 +140,19 @@ router.get("/filter/newsitems", (req, res) => {
     }).catch(err => res.send(err))
 })
 
-router.delete("/newsitem/:id", checkLoggedIn, (req, res) => {
+router.get("/delete/newsitem/:id", checkLoggedIn, (req, res) => {
     const id = req.params.id
 
     NewsItem.deleteOne({
         _id: id
     }).then(res => {
-        res.status(200).json({
+        console.log("deleted", id)
+        res.send({
             message: "Post deleted"
         });
+    }).catch(err => {
+        console.log(err)
+        res.error(err)
     })
 })
 

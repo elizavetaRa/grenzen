@@ -32,7 +32,6 @@ const bodyRequest = (type, endpoint, body, files, uploadProgress) => {
     return new Promise((resolve, reject) => {
         let data
 
-        console.log("api files", files)
 
         if (files) {
             data = new FormData()
@@ -47,6 +46,7 @@ const bodyRequest = (type, endpoint, body, files, uploadProgress) => {
         } else {
             data = body
         }
+
 
         axios[type](endpoint, data, {
                 headers: {
@@ -66,6 +66,7 @@ const bodyRequest = (type, endpoint, body, files, uploadProgress) => {
                     reject(err)
                 }
             })
+
     })
 }
 
