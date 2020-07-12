@@ -34,7 +34,7 @@ const Contact = props => {
 
             api.post(`${SERVER_NAME}/api/auth/contact`, { email, message }).then((response) => {
                 if (response.data.status === 'success') {
-                    alert("Message Sent.");
+
                     resetForm()
                     setError("")
                 } else if (response.data.status === 'fail') {

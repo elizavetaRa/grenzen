@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 const config = require('../../config')
 const upload = require('../../utils/upload')
 const NewsItem = require("../../models/NewsItem")
+const nodeMailer = require("nodemailer");
 
 const {
     userMiddleware,
@@ -103,6 +104,43 @@ router.post('/update', (req, res) => {
             token
         })
     })
+})
+
+router.post("/contact", (req, res) => {
+    const {
+        email,
+        message
+    } = req.body
+
+
+    console.log(email, message)
+    let transporter = nodeMailer.createTransport({
+        host: "Mail.ru",
+        auth: {
+            // should be replaced with real sender's account
+            user: 'kunstform-wissenschaft@mail.ru',
+            pass: 'kunstformkunstform1009'
+        }
+    });
+    let mailOptions = {
+        // should be replaced with real recipient's account
+        to: 'svillyfly@mail.ru',
+        subject: "Kontakt Form kunstform-wissenschaft.org",
+        body: `<p>Email: ${email}</p> <p>Message: ${message}</p>`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+        res.send({
+            success: true
+        })
+    });
+
+
 })
 
 
