@@ -32,9 +32,13 @@
     font-family: sans-serif;
     border: none;
 
+    figure {
+      max-width: 100% !important;
+    }
+
     figure img {
       display: block;
-      max-width: 100% !important;
+      width: 100% !important;
       height: auto !important;
     }
   }
