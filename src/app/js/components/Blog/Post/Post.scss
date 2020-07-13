@@ -33,13 +33,17 @@
     border: none;
 
     figure {
-      max-width: 100% !important;
+      max-width: 100%;
     }
 
     figure img {
       display: block;
-      max-width: 100% !important;
+      max-width: 100%;
       height: auto !important;
+    }
+
+    iframe {
+      max-width: 100%;
     }
   }
 
