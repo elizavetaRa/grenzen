@@ -4,6 +4,7 @@
   align-items: center;
   padding: 10px;
   font-size: 14px;
+  min-height: 140vh;
 
   &__container {
     display: flex;
@@ -14,7 +15,10 @@
     background-color: #fff;
   }
 
-  &__title, &__image, &__video, &__sub-title{
+  &__title,
+  &__image,
+  &__video,
+  &__sub-title {
     align-self: center;
   }
 
@@ -49,7 +53,8 @@
 
   &__youtube {
     position: relative;
-    padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+    padding-bottom: 56.25%;
+    /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
     height: 0;
     overflow: hidden;
 
@@ -72,8 +77,8 @@
   width: 8px;
 }
 
-.ps__rail-y:hover > .ps__thumb-y,
-.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y:hover>.ps__thumb-y,
+.ps__rail-y:focus>.ps__thumb-y,
 .ps__rail-y.ps--clicking .ps__thumb-y {
   background-color: #aaa;
   width: 8px;
