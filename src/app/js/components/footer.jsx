@@ -22,7 +22,7 @@ class footer extends Component {
     return (
 
 
-      <footer className="page-footer bg-dark font-small mdb-color lighten-3 pt-4">
+      <footer className="bg-dark font-small lighten-3 pt-4">
 
 
         <div className="container-width">
