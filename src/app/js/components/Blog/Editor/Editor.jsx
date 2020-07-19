@@ -145,7 +145,7 @@ const Editor = withRouter((props) => {
                             {/*<label htmlFor="file-upload-image" className="btn btn-light editor__upload" value="upload">
                                 <input id="file-upload-image" type="file" className="editor__upload-image-input" />
                                     Add image
-                            </label>*/}
+                            </label>
 
                             <input
                                 type="file"
@@ -158,7 +158,7 @@ const Editor = withRouter((props) => {
                                 className="form-control editor__add-youtube"
                                 placeholder="Add youtube link"
                                 onChange={handleChangeYoutubeLink}
-                                value={post.youtube}></input>
+                                value={post.youtube}></input>*/}
 
                             <Card.Title>
                                 <div className="editor__label">Add hash tags</div>

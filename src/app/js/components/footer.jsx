@@ -90,9 +90,8 @@ class footer extends Component {
 
           <div className="row">
             <div className="col text-center text-white">
-              <Link to={`/datenschutz`}>Datenschutz</Link>
               <br></br>
-              <Link to={`/impressum`}>Impressum</Link></div>
+              <Link to={`/impressum`}>Impressum und Datenschutz</Link></div>
           </div>
           <br></br><br></br>
         </div>
