@@ -24,15 +24,17 @@ const Post = (props) => {
     useEffect(() => {
         window.scrollTo(0, 0);
         if (postId) {
+            props.setIsLoading(true);
             api.get(
                 `${SERVER_NAME}/api/blog/newsitem/${postId}`
             ).then(data => {
+                props.setIsLoading(false);
                 setPost(data.item);
                 setContent(data.item.content);
             })
-                .catch(err => {
-                    console.log(err)
-                })
+            .catch(err => {
+                console.log(err)
+            })
         }
 
         return () => { }
