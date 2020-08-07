@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Home.scss';
 import { Row, Col, Card } from "react-bootstrap"
+import ann_picture from "../../../style/images/IMG_4207_small.jpg"
+import geza_picture from "../../../style/images/IMG_4223_small.jpg"
 
 const About = props => {
     return (
@@ -25,7 +27,7 @@ const About = props => {
 
 
                         <Card style={{ width: '25rem' }}>
-                            <Card.Img variant="top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" />
+                            <Card.Img variant="top" src={ann_picture} />
                             <Card.Body>
                                 <Card.Title>Ann Katzinski</Card.Title>
                                 <Card.Text className="text-black">
@@ -41,7 +43,7 @@ const About = props => {
 
 
                         <Card style={{ width: '25rem' }}>
-                            <Card.Img variant="top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" />
+                            <Card.Img variant="top" src={geza_picture} />
                             <Card.Body>
                                 <Card.Title>Gesa Hengerer</Card.Title>
                                 <Card.Text>
