@@ -24,6 +24,7 @@ import Post from "./components/Blog/Post/Post";
 import About from "./components/Home/About";
 import Impressum from "./components/Home/Impressum"
 import Datenschutz from "./components/Home/Dateschutz"
+import Loader from "./components/Loader/Loader";
 
 
 class Application extends React.Component {
@@ -32,15 +33,20 @@ class Application extends React.Component {
 
         this.state = {
             user: this._setUser(true),
-        }
+            isLoading: false
+        };
 
-        this._setUser = this._setUser.bind(this)
-        this._resetUser = this._resetUser.bind(this)
+        this._setUser = this._setUser.bind(this);
+        this._resetUser = this._resetUser.bind(this);
     }
 
     componentDidMount() {
-        this._setUser()
+        this._setUser();
     }
+
+    setIsLoading = (isLoading) => {
+        this.setState({isLoading});
+    };
 
     render() {
         return (
@@ -48,6 +54,7 @@ class Application extends React.Component {
                 <div className="grenzen-container">
 
                     <Header></Header>
+                    {this.state.isLoading && <Loader/>}
                     {/* <Navigation user={this.state.user} />
                     <Switch>
                         <Route exact path="/" render={() => <Home user={this.state.user} />} />
@@ -73,15 +80,15 @@ class Application extends React.Component {
                             <Exhibit />
                         </Route>
                         <Route exact path="/blog">
-                            <Blog user={this.state.user} />
+                            <Blog user={this.state.user} setIsLoading={this.setIsLoading} isLoading={this.state.isLoading}/>
                         </Route>
 
                         <Route exact path="/blog/new">
-                            <Editor />
+                            <Editor setIsLoading={this.setIsLoading} isLoading={this.state.isLoading}/>
                         </Route>
 
                         <Route exact path="/blog/edit/:id">
-                            <Editor />
+                            <Editor setIsLoading={this.setIsLoading} isLoading={this.state.isLoading}/>
                         </Route>
 
                         <Route exact path="/kontakt">
@@ -102,7 +109,7 @@ class Application extends React.Component {
 
 
                         <Route exact path="/blog/post/:id">
-                            <Post />
+                            <Post setIsLoading={this.setIsLoading}/>
                         </Route>
 
                         <Route

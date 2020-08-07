@@ -33,9 +33,11 @@ const Editor = withRouter((props) => {
         window.scrollTo(0, 0);
 
         if (postId) {
+            props.setIsLoading(true);
             api.get(
                 `${SERVER_NAME}/api/blog/newsitem/${postId}`
             ).then(data => {
+                props.setIsLoading(false);
                 setPost(data.item);
                 if (data.item.hashtags.length) setHashTags(data.item.hashtags.filter(tag => !!tag));
                 if (data.item.image) setImageLink(data.item.image);
@@ -83,6 +85,9 @@ const Editor = withRouter((props) => {
     }
 
     function saveResults() {
+        window.scrollTo(0, 0);
+        props.setIsLoading(true);
+
         const postToSend = { ...post, content: editorContent, date: Date.now(), hashtags: hashTags };
 
         const onSaveResults = (id) => {
@@ -92,7 +97,10 @@ const Editor = withRouter((props) => {
         if (postId) {
             api.post(
                 `${SERVER_NAME}/api/blog/edit-newsitem/${postId}`, postToSend, { image: image }
-            ).then(() => onSaveResults(postId)).catch(err => {
+            ).then(() => {
+                props.setIsLoading(false);
+                onSaveResults(postId)}
+            ).catch(err => {
                 console.log('Server responded with error!')
             })
         } else {
@@ -100,6 +108,7 @@ const Editor = withRouter((props) => {
             api.post(
                 `${SERVER_NAME}/api/blog/newsitem`, postToSend, { image: image }
             ).then((data) => {
+                props.setIsLoading(false);
                 onSaveResults(data.id);
             }).catch(err => {
                 console.log('Server responded with error!')
@@ -188,7 +197,10 @@ const Editor = withRouter((props) => {
                     </Card.Body>
                 </Card>
             </div>
-            <Button className="editor__save-btn" variant="success" onClick={saveResults}>
+            <Button className="editor__save-btn"
+                    variant="success"
+                    disabled={props.isLoading}
+                    onClick={saveResults}>
                 Save
             </Button>
         </div>

@@ -6,8 +6,6 @@ import {
 import moment from 'moment';
 
 import './NewsCard.scss';
-import { SERVER_NAME } from "../../../constants";
-import api from '../../../utils/api';
 
 const NewsCard = withRouter(({ history, card, onDelete }) => {
     function formatDate(date) {

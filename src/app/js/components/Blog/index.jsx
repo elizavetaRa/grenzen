@@ -11,7 +11,7 @@ import { SERVER_NAME } from "../../constants";
 import api from '../../utils/api';
 import './index.scss';
 
-const index = () => {
+const index = ({setIsLoading, isLoading}) => {
     const [postsList, setPostsList] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     const [isModalShown, setIsModalShown] = useState(false);
@@ -22,9 +22,12 @@ const index = () => {
     }, []);
 
     function getPostsList() {
+        setIsLoading(true);
+
         return api.get(
             `${SERVER_NAME}/api/blog/newsitems`
         ).then(data => {
+            setIsLoading(false);
             setPostsList(data);
         })
         .catch(err => {
@@ -48,11 +51,15 @@ const index = () => {
     }
 
     function onDeletePost() {
+        setIsLoading(true);
+        hideModal();
+
         api.get(
             `${SERVER_NAME}/api/blog/delete/newsitem/${postIdToDelete}`
         ).then(() => {
+            setIsLoading(false);
             setPostIdToDelete(null);
-            getPostsList().then(hideModal);
+            getPostsList();
         })
         .catch(err => {
             console.log(err)
@@ -69,7 +76,7 @@ const index = () => {
             <div className="blog-container">
                 <Container>
                     <Row>
-                        <Col md={2} className="blog-container__aside">
+                        {!isLoading && <Col md={2} className="blog-container__aside">
                             <Dropdown className="blog-container__dropdown-filter">
                                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
                                     Filter
@@ -86,8 +93,9 @@ const index = () => {
                                     New post
                            </Link>
                             </Button>}
-                        </Col>
-                        <Col md={8}>
+                        </Col>}
+                        {isLoading && <Col md={12}><div className="blog-container__loading"></div></Col>}
+                        {!isLoading && <Col md={8}>
                             {
                                 postsList.length ? postsList[pageNumber].map(card => (
                                     <div className="blog-container__news-card">
@@ -109,8 +117,8 @@ const index = () => {
                                 nextClassName="pagination-arrow-btn"
                                 breakClassName="pagination-break"
                                 onPageChange={(event) => handlePageClick(event)}></ReactPaginate>
-                        </Col>
-                        <Col md={2}></Col>
+                        </Col> }
+                        {!isLoading && <Col md={2}></Col>}
                     </Row>
                 </Container>
             </div>
