@@ -18,7 +18,7 @@ const About = props => {
                     <br></br>
                     <h2>Über uns</h2>
                     <br></br>
-                    <p className="over">Aktuell stehen wir mitten in der Gründung unseres Vereins Kunstform Wissenschaft. Hinter der Idee stehen Ann Katzinski und Gesa Hengerer. Wirhaben uns während unseres Bachelorstudiums der Sozialwissenschaften an der Humboldt-Universität zu Berlin kennengelernt und arbeiten seitdeman der Umsetzung unseres Ziels: Einen Zugang zu wissenschaftlichen Erkenntnissen für die breite Öffentlichkeit zu schaffen sowie studentische Forschung und Lehre im öffentlichen Raum sichtbar zu machen. Dabei sehen wir uns primär als vermittelnde Instanz, die die Projekte im Prozess begleitet sowie Studierende dazu anregt und unterstützt, ihre Forschung gestalterisch zu kommunizieren.</p>
+                    <p className="over">Aktuell stehen wir mitten in der Gründung unseres Vereins Kunstform Wissenschaft. Hinter der Idee stehen Ann Katzinski und Gesa Hengerer. Wir haben uns während unseres Bachelorstudiums der Sozialwissenschaften an der Humboldt-Universität zu Berlin kennengelernt und arbeiten seitdeman der Umsetzung unseres Ziels: Einen Zugang zu wissenschaftlichen Erkenntnissen für die breite Öffentlichkeit zu schaffen sowie studentische Forschung und Lehre im öffentlichen Raum sichtbar zu machen. Dabei sehen wir uns primär als vermittelnde Instanz, die die Projekte im Prozess begleitet sowie Studierende dazu anregt und unterstützt, ihre Forschung gestalterisch zu kommunizieren.</p>
                 </div><div>
                     <Row className="d-flex justify-content-around">
 

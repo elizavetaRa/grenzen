@@ -32,7 +32,11 @@ const Contact = props => {
 
         if (email && message) {
 
+
+
             api.post(`${SERVER_NAME}/api/auth/contact`, { email, message }).then((response) => {
+
+                console.log("response", response)
                 if (response.data.status === 'success') {
 
                     resetForm()
@@ -50,7 +54,7 @@ const Contact = props => {
     return (
 
         <div className="bg">
-            <div className="container" style={{ width: '25rem' }}>
+            <div className="container text-white" style={{ width: '25rem' }}>
 
 
                 <Form onSubmit={handleSubmit} method="POST">
