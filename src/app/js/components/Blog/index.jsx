@@ -11,7 +11,7 @@ import { SERVER_NAME } from "../../constants";
 import api from '../../utils/api';
 import './index.scss';
 
-const index = ({setIsLoading, isLoading}) => {
+const index = ({ setIsLoading, isLoading }) => {
     const [postsList, setPostsList] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     const [isModalShown, setIsModalShown] = useState(false);
@@ -30,9 +30,9 @@ const index = ({setIsLoading, isLoading}) => {
             setIsLoading(false);
             setPostsList(data);
         })
-        .catch(err => {
-            console.log(err)
-        })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     function handlePageClick(event) {
@@ -61,9 +61,9 @@ const index = ({setIsLoading, isLoading}) => {
             setPostIdToDelete(null);
             getPostsList();
         })
-        .catch(err => {
-            console.log(err)
-        })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     function onCancelPostDelete() {
@@ -77,7 +77,7 @@ const index = ({setIsLoading, isLoading}) => {
                 <Container>
                     <Row>
                         {!isLoading && <Col md={2} className="blog-container__aside">
-                            <Dropdown className="blog-container__dropdown-filter">
+                            {/*<Dropdown className="blog-container__dropdown-filter">
                                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
                                     Filter
                            </Dropdown.Toggle>
@@ -86,7 +86,7 @@ const index = ({setIsLoading, isLoading}) => {
                                     <Dropdown.Item>Another action</Dropdown.Item>
                                     <Dropdown.Item>Something else</Dropdown.Item>
                                 </Dropdown.Menu>
-                            </Dropdown>
+    </Dropdown>*/}
                             <div className="blog-container__empty"></div>
                             {localStorage.getItem('identity') && <Button variant="dark" className="blog-container__new-post-button">
                                 <Link className="link nav-link" to="/blog/new">
@@ -117,16 +117,16 @@ const index = ({setIsLoading, isLoading}) => {
                                 nextClassName="pagination-arrow-btn"
                                 breakClassName="pagination-break"
                                 onPageChange={(event) => handlePageClick(event)}></ReactPaginate>
-                        </Col> }
+                        </Col>}
                         {!isLoading && <Col md={2}></Col>}
                     </Row>
                 </Container>
             </div>
             <Modal className="editor__modal"
-                          show={isModalShown}
-                          onHide={hideModal}
-                          backdrop="static"
-                          keyboard={false}>
+                show={isModalShown}
+                onHide={hideModal}
+                backdrop="static"
+                keyboard={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Entfernen</Modal.Title>
                 </Modal.Header>
