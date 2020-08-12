@@ -7,7 +7,7 @@
   &__preview {
     display: flex;
     align-items: center;
-    height: 50px;
+    min-height: 50px;
     padding: 5px;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 3px;
