@@ -11,8 +11,13 @@ const newsItemSchema = new Schema({
         type: String,
         required: true,
         unique: false,
+        text: true,
     },
-
+    preview: {
+        type: String,
+        required: true,
+        unique: false,
+    },
     date: {
         type: Number,
         required: true,
@@ -20,24 +25,22 @@ const newsItemSchema = new Schema({
     },
     image: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
 
     youtube: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
 
-    hashtags:
-        [{
-            type: String,
-            required: true,
-            unique: false,
-        }]
-
-
+    hashtags: [{
+        type: String,
+        required: false,
+        unique: false,
+    }]
 })
+
 
 module.exports = mongoose.model('NewsItem', newsItemSchema)

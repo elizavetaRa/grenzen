@@ -32,6 +32,7 @@ const bodyRequest = (type, endpoint, body, files, uploadProgress) => {
     return new Promise((resolve, reject) => {
         let data
 
+
         if (files) {
             data = new FormData()
 
@@ -46,11 +47,13 @@ const bodyRequest = (type, endpoint, body, files, uploadProgress) => {
             data = body
         }
 
+
         axios[type](endpoint, data, {
-            headers: { Authorization: `Bearer ${localStorage.getItem('identity')}` },
-            onUploadProgress:
-                uploadProgress && typeof uploadProgress === 'function' ? uploadProgress : undefined,
-        })
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('identity')}`
+                },
+                onUploadProgress: uploadProgress && typeof uploadProgress === 'function' ? uploadProgress : undefined,
+            })
             .then(result => {
                 if (result.token) localStorage.setItem('identity', result.token)
                 resolve(result.data)
@@ -63,6 +66,7 @@ const bodyRequest = (type, endpoint, body, files, uploadProgress) => {
                     reject(err)
                 }
             })
+
     })
 }
 
@@ -71,7 +75,9 @@ const api = {
         return new Promise((resolve, reject) => {
             axios
                 .get(endpoint, {
-                    headers: { Authorization: `Bearer ${localStorage.getItem('identity')}` },
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('identity')}`
+                    },
                 })
                 .then(result => resolve(result.data))
                 .catch(err => {

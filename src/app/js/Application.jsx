@@ -13,37 +13,48 @@ import api from './utils/api'
 import logo from "./logo.svg";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Home from "./components/home";
+import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Exhibition from "./components/exhibition/index.jsx";
 import Exhibit from "./components/exhibition/exhibit";
-import Blog from "./components/Blog/index"
-import Contact from "./components/Contact"
+import Blog from "./components/Blog/index";
+import Editor from "./components/Blog/Editor/Editor";
+import Contact from "./components/Contact";
+import Post from "./components/Blog/Post/Post";
+import About from "./components/Home/About";
+import Impressum from "./components/Home/Impressum"
+import Datenschutz from "./components/Home/Dateschutz"
+import Loader from "./components/Loader/Loader";
 
 
 class Application extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             user: this._setUser(true),
-        }
+            isLoading: false
+        };
 
-        this._setUser = this._setUser.bind(this)
-        this._resetUser = this._resetUser.bind(this)
+        this._setUser = this._setUser.bind(this);
+        this._resetUser = this._resetUser.bind(this);
     }
 
     componentDidMount() {
-        this._setUser()
+        this._setUser();
     }
 
+    setIsLoading = (isLoading) => {
+        this.setState({isLoading});
+    };
+
     render() {
-        console.log(this.state.user)
         return (
             <BrowserRouter>
-                <div>
+                <div className="grenzen-container">
 
                     <Header></Header>
+                    {this.state.isLoading && <Loader/>}
                     {/* <Navigation user={this.state.user} />
                     <Switch>
                         <Route exact path="/" render={() => <Home user={this.state.user} />} />
@@ -58,7 +69,6 @@ class Application extends React.Component {
                     <Switch>
                         <Route exact path="/">
                             <div className="bg">
-
                                 <Home user={this.state.user}></Home>
                             </div>
                         </Route>
@@ -70,21 +80,40 @@ class Application extends React.Component {
                             <Exhibit />
                         </Route>
                         <Route exact path="/blog">
-                            <Blog />
+                            <Blog user={this.state.user} setIsLoading={this.setIsLoading} isLoading={this.state.isLoading}/>
+                        </Route>
+
+                        <Route exact path="/blog/new">
+                            <Editor setIsLoading={this.setIsLoading} isLoading={this.state.isLoading}/>
+                        </Route>
+
+                        <Route exact path="/blog/edit/:id">
+                            <Editor setIsLoading={this.setIsLoading} isLoading={this.state.isLoading}/>
                         </Route>
 
                         <Route exact path="/kontakt">
                             <Contact />
                         </Route>
 
-                        <Route exact path="/admin">
-                            <Navigation />
+                        <Route exact path="/über">
+                            <About />
+                        </Route>
+
+                        <Route exact path="/impressum">
+                            <Impressum />
+                        </Route>
+
+                        <Route exact path="/datenschutz">
+                            <Datenschutz />
                         </Route>
 
 
+                        <Route exact path="/blog/post/:id">
+                            <Post setIsLoading={this.setIsLoading}/>
+                        </Route>
 
                         <Route
-                            path="/auth"
+                            path="/admin"
                             render={() => <Auth setUser={this._setUser} resetUser={this._resetUser} />}
                         />
                         <Route component={NotFound} />

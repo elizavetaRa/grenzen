@@ -8,6 +8,7 @@ import SignUp from './SignUp'
 import Logout from './Logout'
 import SignIn from './SignIn'
 import NotFound from '../NotFound'
+import { SERVER_NAME } from "../constants"
 
 class Auth extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class Auth extends Component {
     render() {
         return (
             <Switch>
-                <Route
+                {/**  <Route
                     exact
                     path="/auth/sign-up"
                     render={() => (
@@ -39,10 +40,10 @@ class Auth extends Component {
                             sign={this._sign}
                         />
                     )}
-                />
+                />*/}
                 <Route
                     exact
-                    path="/auth/sign-in"
+                    path="/admin"
                     render={() => (
                         <SignIn
                             handleInputChange={this._handleInputChange}
@@ -55,7 +56,7 @@ class Auth extends Component {
                 />
                 <Route
                     exact
-                    path="/auth/logout"
+                    path="/admin/logout"
                     render={() => <Logout resetUser={this.props.resetUser} />}
                 />
                 <Route component={NotFound} />
@@ -77,7 +78,7 @@ class Auth extends Component {
         const pictureDeclaration = type === 'up' && { picture: this.state.picture }
 
         api.post(
-            `/api/auth/sign-${type}`,
+            `${SERVER_NAME}/api/auth/sign-${type}`,
             { email: this.state.email, password: this.state.password },
             pictureDeclaration
         )
@@ -94,7 +95,7 @@ class Auth extends Component {
     }
 
     _updateUser() {
-        api.post('/api/auth/post', { age: 25 }).then(data => {
+        api.post(`${SERVER_NAME}/api/auth/post`, { age: 25 }).then(data => {
             localStorage.setItem('identity', data.token)
             this.props.setUser()
         })

@@ -1,0 +1,29 @@
+.news-card {
+  &:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+
+  &__preview {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 3px;
+    outline: none;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__edit {
+    margin-right: 10px;
+  }
+
+  &__date {
+    margin: 5px 0 !important;
+  }
+}
